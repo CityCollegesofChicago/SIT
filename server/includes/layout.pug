@@ -1,0 +1,29 @@
+doctype
+html
+    head
+        base(href="/")
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='The City Colleges of Chicago Supportive Intervention Team - Person of Concern Report Form is used to allow Supportive Intervention Teams (SITs) at the City Colleges of Chicago to conduct behavioral threat assessments for persons who might pose a safety risk to themselves or others.')
+        meta(name='author', content='Dennis Macklin, City Colleges of Chicago Website Applications Developer')
+        title City Colleges of Chicago: Person of Concern Report Form
+        // Bootstrap core CSS
+        link(href='/sit/css/bootstrap.min.css', rel='stylesheet')
+        link( rel="stylesheet", href="/sit/lib/toastr/toastr.min.css" )
+        // Custom styles for this template
+        link(href='/sit/css/business-frontpage.css', rel='stylesheet')
+        link(href='/sit/FormsFramework/css/forms-plus.css', rel='stylesheet')
+        link(href='sit/node_modules/angularjs-dropdown-multiselect/dist/index.css' rel='stylesheet')
+        link(rel='icon' href='favicon.ico' type='image/png' sizes='79x79')
+        link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
+        //<link rel="icon" href="https://engineering.ccc.edu/wp-content/uploads/2019/04/cropped-favicon_wr-192x192.png" sizes="192x192" />
+        //link(href='/scholarshipApp/FormsFramework/font-awesome/css/font-awesome.css', rel='stylesheet')
+
+
+
+    body(ng-app="sitApp" ng-cloak)
+    include currentYearInfo
+        block main-content
+    include scripts
+
+

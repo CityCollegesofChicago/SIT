@@ -1,0 +1,18 @@
+rootPathC:\inetpub\wwwroot\LoanerLaptop\
+'env: development'
+{ sqlConfig: 
+   { user: 'sa',
+     password: 'IamSQLadmin',
+     server: '10.27.251.46',
+     database: 'LoanerLaptop' },
+  port: '\\\\.\\pipe\\572d9285-d6dc-4b12-be32-92601ef1791f',
+  virtualDirPath: '/LoanerLaptop',
+  rootPath: 'C:\\inetpub\\wwwroot\\LoanerLaptop\\',
+  emailConfig: { host: 'psm.ccc.edu', port: '25' },
+  loggingLevel: 'DEBUG' }
+look for static files at: C:\inetpub\wwwroot\LoanerLaptop\/public
+Listening on port \\.\pipe\572d9285-d6dc-4b12-be32-92601ef1791f...
+INFO  Request from undefined: GET /loanerlaptop
+INFO  Request from undefined: GET /loanerlaptop
+INFO  Response with status 200 in 448 ms.
+INFO  Response with status 200 in 626 ms.

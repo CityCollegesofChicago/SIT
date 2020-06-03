@@ -1,0 +1,36 @@
+rootPathC:\inetpub\wwwroot\LoanerLaptop\
+'env: development'
+{ sqlConfig: 
+   { user: 'sa',
+     password: 'IamSQLadmin',
+     server: '10.27.251.46',
+     database: 'LoanerLaptop' },
+  port: '\\\\.\\pipe\\44107fcd-e380-49d1-85fe-7ab4fe494fc2',
+  virtualDirPath: '/LoanerLaptop',
+  rootPath: 'C:\\inetpub\\wwwroot\\LoanerLaptop\\',
+  emailConfig: { host: 'psm.ccc.edu', port: '25' },
+  loggingLevel: 'DEBUG' }
+look for static files at: C:\inetpub\wwwroot\LoanerLaptop\/public
+Listening on port \\.\pipe\44107fcd-e380-49d1-85fe-7ab4fe494fc2...
+INFO  Request from undefined: GET /LoanerLaptop
+INFO  Response with status 200 in 404 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 304 in 100 ms.
+INFO  Request from undefined: GET /LoanerLaptop/login
+INFO  Response with status 200 in 187 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 200 in 65 ms.
+INFO  Request from undefined: POST /LoanerLaptop/login
+user ID: ddorman
+INFO  Response with status 200 in 1484 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentTechLoanCreds/000685506
+in check cs9 credentials: 
+000685506
+in callCS9 before https request and after assign config
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/applicationForm
+INFO  Response with status 200 in 94 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/general_contact_info
+INFO  Response with status 200 in 262 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentApplication/000685506
+in get  application: 000685506
+INFO  Response with status 200 in 111 ms.

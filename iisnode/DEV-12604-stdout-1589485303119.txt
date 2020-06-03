@@ -1,0 +1,94 @@
+rootPathC:\inetpub\wwwroot\LoanerLaptop\
+'env: development'
+{ sqlConfig: 
+   { user: 'sa',
+     password: 'IamSQLadmin',
+     server: '10.27.251.46',
+     database: 'LoanerLaptop' },
+  port: '\\\\.\\pipe\\7d6e68b9-c421-4911-b66e-e718d714cfe7',
+  virtualDirPath: '/LoanerLaptop',
+  rootPath: 'C:\\inetpub\\wwwroot\\LoanerLaptop\\',
+  emailConfig: { host: 'psm.ccc.edu', port: '25' },
+  loggingLevel: 'DEBUG' }
+look for static files at: C:\inetpub\wwwroot\LoanerLaptop\/public
+Listening on port \\.\pipe\7d6e68b9-c421-4911-b66e-e718d714cfe7...
+INFO  Request from undefined: GET /LoanerLaptop
+INFO  Response with status 304 in 504 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 304 in 85 ms.
+INFO  Request from undefined: GET /LoanerLaptop/login
+INFO  Response with status 200 in 109 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 200 in 42 ms.
+INFO  Request from undefined: POST /LoanerLaptop/login
+user ID: ddorman
+INFO  Response with status 200 in 1611 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentTechLoanCreds/000685506
+in check cs9 credentials: 
+000685506
+in callCS9 before https request and after assign config
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/applicationForm
+INFO  Response with status 200 in 27 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/general_contact_info
+INFO  Response with status 200 in 161 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentApplication/000685506
+in get  application: 000685506
+INFO  Response with status 200 in 104 ms.
+INFO  Request from undefined: GET /LoanerLaptop/
+INFO  Response with status 200 in 233 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 304 in 77 ms.
+INFO  Request from undefined: GET /LoanerLaptop/login
+INFO  Response with status 200 in 106 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 200 in 35 ms.
+INFO  Request from undefined: POST /LoanerLaptop/login
+user ID: ddorman
+INFO  Response with status 200 in 1040 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentTechLoanCreds/000685506
+in check cs9 credentials: 
+000685506
+in callCS9 before https request and after assign config
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/applicationForm
+INFO  Response with status 200 in 27 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/general_contact_info
+INFO  Response with status 200 in 138 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentApplication/000685506
+in get  application: 000685506
+INFO  Response with status 200 in 58 ms.
+INFO  Request from undefined: GET /LoanerLaptop/
+INFO  Response with status 200 in 98 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 304 in 47 ms.
+INFO  Request from undefined: POST /LoanerLaptop/login
+user ID: ddorman
+INFO  Response with status 200 in 1070 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentTechLoanCreds/000685506
+in check cs9 credentials: 
+000685506
+in callCS9 before https request and after assign config
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/applicationForm
+INFO  Response with status 304 in 81 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/general_contact_info
+INFO  Response with status 304 in 252 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentApplication/000685506
+in get  application: 000685506
+INFO  Response with status 304 in 32 ms.
+INFO  Request from undefined: GET /LoanerLaptop
+INFO  Response with status 200 in 228 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 304 in 83 ms.
+INFO  Request from undefined: POST /LoanerLaptop/login
+user ID: ddorman
+INFO  Response with status 200 in 1044 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentTechLoanCreds/000685506
+in check cs9 credentials: 
+000685506
+in callCS9 before https request and after assign config
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/applicationForm
+INFO  Response with status 304 in 37 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/general_contact_info
+INFO  Response with status 304 in 140 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentApplication/000685506
+in get  application: 000685506
+INFO  Response with status 304 in 53 ms.

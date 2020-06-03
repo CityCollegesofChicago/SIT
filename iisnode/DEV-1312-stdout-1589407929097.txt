@@ -1,0 +1,13 @@
+rootPathC:\inetpub\wwwroot\LoanerLaptop\
+'env: development'
+{ sqlConfig: 
+   { user: 'sa',
+     password: 'IamSQLadmin',
+     server: '10.27.251.46',
+     database: 'LoanerLaptop' },
+  port: '\\\\.\\pipe\\9181fdbc-deaa-49d1-9f6f-8af2e6790378',
+  virtualDirPath: '/LoanerLaptop',
+  rootPath: 'C:\\inetpub\\wwwroot\\LoanerLaptop\\',
+  emailConfig: { host: 'psm.ccc.edu', port: '25' },
+  loggingLevel: 'DEBUG' }
+look for static files at: C:\inetpub\wwwroot\LoanerLaptop\/public

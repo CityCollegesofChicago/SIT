@@ -1,0 +1,31 @@
+rootPathC:\inetpub\wwwroot\LoanerLaptop\
+'env: development'
+{ sqlConfig: 
+   { user: 'sa',
+     password: 'IamSQLadmin',
+     server: '10.27.251.46',
+     database: 'LoanerLaptop' },
+  port: '\\\\.\\pipe\\31471872-97ac-4cdf-aee3-b5882fd27384',
+  virtualDirPath: '/LoanerLaptop',
+  rootPath: 'C:\\inetpub\\wwwroot\\LoanerLaptop\\',
+  emailConfig: { host: 'psm.ccc.edu', port: '25' },
+  loggingLevel: 'DEBUG' }
+look for static files at: C:\inetpub\wwwroot\LoanerLaptop\/public
+Listening on port \\.\pipe\31471872-97ac-4cdf-aee3-b5882fd27384...
+INFO  Request from undefined: GET /LoanerLaptop
+INFO  Response with status 200 in 541 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 304 in 76 ms.
+INFO  Request from undefined: GET /LoanerLaptop/login
+INFO  Response with status 200 in 133 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 200 in 54 ms.
+INFO  Request from undefined: POST /LoanerLaptop/login
+user ID: ddorman
+INFO  Response with status 200 in 1590 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/applicationForm
+INFO  Response with status 200 in 87 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/general_contact_info
+INFO  Response with status 200 in 275 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/regret
+INFO  Response with status 200 in 25 ms.

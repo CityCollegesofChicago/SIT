@@ -1,0 +1,32 @@
+rootPathC:\inetpub\wwwroot\LoanerLaptop\
+'env: development'
+{ sqlConfig: 
+   { user: 'sa',
+     password: 'IamSQLadmin',
+     server: '10.27.251.46',
+     database: 'LoanerLaptop' },
+  port: '\\\\.\\pipe\\5daa77dc-a50e-4888-a4e6-6ecfe0badcf4',
+  virtualDirPath: '/LoanerLaptop',
+  rootPath: 'C:\\inetpub\\wwwroot\\LoanerLaptop\\',
+  emailConfig: { host: 'psm.ccc.edu', port: '25' },
+  loggingLevel: 'DEBUG' }
+look for static files at: C:\inetpub\wwwroot\LoanerLaptop\/public
+Listening on port \\.\pipe\5daa77dc-a50e-4888-a4e6-6ecfe0badcf4...
+INFO  Request from undefined: GET /LoanerLaptop
+INFO  Response with status 200 in 380 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 304 in 74 ms.
+INFO  Request from undefined: GET /LoanerLaptop/login
+INFO  Response with status 200 in 109 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/account/login
+INFO  Response with status 200 in 43 ms.
+INFO  Request from undefined: POST /LoanerLaptop/login
+user ID: ddorman
+INFO  Response with status 200 in 1684 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/applicationForm
+INFO  Response with status 200 in 28 ms.
+INFO  Request from undefined: GET /LoanerLaptop/partials/application/general_contact_info
+INFO  Response with status 200 in 157 ms.
+INFO  Request from undefined: GET /LoanerLaptop/api/getStudentApplication/000685506
+in get  application: 000685506
+INFO  Response with status 200 in 105 ms.
