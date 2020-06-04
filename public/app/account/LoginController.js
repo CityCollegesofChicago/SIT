@@ -12,6 +12,22 @@ angular.module('sitApp').controller('loginController', function($scope, $http, $
     $state.go('deadlinepassed');
   }
 
+  $scope.submitLogin = function () {
+
+    mvAuth.authenticateUser($scope.user).then(function (success) {
+
+      if (success && mvIdentity.currentUser.GivenName) {
+        Notifier.notify('Welcome ' + mvIdentity.currentUser.GivenName + '.  You have successfully signed in!');
+        $state.go('application');
+      }
+      else {
+        Notifier.error('Username and Password combination incorrect');
+      }
+
+    });
+  }
+});
+
   //$scope.submitLogin = function () {
 
     //mvAuth.authenticateUser($scope.user).then(function (success) {
@@ -31,18 +47,3 @@ angular.module('sitApp').controller('loginController', function($scope, $http, $
 //});
 
 
-$scope.submitLogin = function () {
-
-  mvAuth.authenticateUser($scope.user).then(function (success) {
-
-    if (success && mvIdentity.currentUser.GivenName) {
-      Notifier.notify('Welcome ' + mvIdentity.currentUser.GivenName + '.  You have successfully signed in!');
-      $state.go('application');
-    }
-    else {
-      Notifier.error('Username and Password combination incorrect');
-    }
-
-  });
-}
-});
