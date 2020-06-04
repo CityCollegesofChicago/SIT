@@ -19,7 +19,7 @@ img {
 .img-scholarships {
   width:100%;
   margin:0;
-  background:transparent url('/scholarshipApp/img/backgroundheader.jpg') no-repeat center center /cover;
+  background:transparent url('/sit/img/backgroundheader.jpg') no-repeat center center /cover;
   background-size: cover;
 }
 
@@ -29,5 +29,10 @@ img {
 
  */
 
-.img-whitelogo { background-image: url(/scholarshipApp/img/CCC-Foundation-Logo-229x60.png) ; background-repeat: no-repeat;
+/*.img-whitelogo { background-image: url(/scholarshipApp/img/CCC-Foundation-Logo-229x60.png) ; background-repeat: no-repeat;
+}
+
+*/
+
+.img-whitelogo { background-image: url(/sit/img/district-logo-white.png) ; background-repeat: no-repeat;
 }
