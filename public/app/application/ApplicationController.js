@@ -9,7 +9,7 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
         $state.go('login');
     } else {
         $scope.student = mvIdentity.currentUser;
-        if($scope.student.hasApplied === true){
+        if($scope.student === true){
             Notifier.notify("You have already submitted an inquiry.  Please contact support if you believe this is in error.")
             $timeout(function () {
                 $state.go('thanks');
