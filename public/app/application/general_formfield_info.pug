@@ -1,0 +1,270 @@
+doctype html
+.row.padding-after
+    .col-sm-6
+        p.font-weight-bold.mb-3 Reporting Person's Information
+        .form-group
+            label.bootcamp-input-label(for='reportdate') Date of Report *
+            .input-group.p-has-icon
+                input#reportdate.form-control.bootcamp-input(type='text', name='reportdate', ui-mask='07/20/2020' ui-mask-placeholder ui-options="{clearOnBlur:false}" placeholder='07/20/2020' ng-model="student.reportdate" required)
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.reportdate.$touched  || SubmittedClicked')
+                .p-field-error(ng-show=" scholarshipAppForm.reportdate.$error.mask" ) Please enter a report date in this form 07/20/2020.
+                .p-field-error(ng-show=" scholarshipAppForm.reportdate.$error.required" ) Please enter your report date.
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='name') Name *
+            .input-group
+                input#name.form-control.bootcamp-input(type='text', name='name', placeholder='name of person filing report' ng-model="student.name" required )
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.name.$touched  || SubmittedClicked')
+                .p-field-error(ng-show='scholarshipAppForm.name.$error.mask') Please enter the name of the person filing report.
+                .p-field-error(ng-show='scholarshipAppForm.name.$error.required') Please enter your name.
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='email') Email * (Receives report)
+            .input-group
+                input#email.form-control.bootcamp-input(type='email', name='email', placeholder='example_email@ccc.edu' ng-model="student.email" required )
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.email.$touched  || SubmittedClicked')
+                .p-field-error(ng-show='scholarshipAppForm.email.$error.email') Invalid CCC email.
+                .p-field-error(ng-show='scholarshipAppForm.email.$error.required') Please enter a CCC email.
+
+.row.padding-after
+    .col-md-6
+        .form-group
+            label.bootcamp-input-label(for='officephone') Office Phone
+            .input-group
+                input#officephone.form-control.bootcamp-input(type='text', name='officephone', ui-mask='999.999.9999' ui-mask-placeholder="___.___.____" ui-options="{clearOnBlur:false}" placeholder='office phone' ng-model="student.officephone")
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.officephone.$touched')
+                .p-field-error(ng-if="scholarshipAppForm.officephone.$touched && scholarshipAppForm.officephone.$error.mask" ) Enter a 10 digit phone.
+                .p-field-error(ng-show='scholarshipAppForm.officephone.$error.required') A phone number is required.
+
+.row.padding-after
+    .col-md-6
+        .form-group
+            label.bootcamp-input-label(for='otherphone') Other Phone
+            .input-group
+                input#otherphone.form-control.bootcamp-input(type='text', name='otherphone', ui-mask='999.999.9999' ui-mask-placeholder="___.___.____" ui-options="{clearOnBlur:false}" placeholder='other phone' ng-model="student.otherphone")
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.otherphone.$touched')
+                .p-field-error(ng-if="scholarshipAppForm.otherphone.$touched && scholarshipAppForm.otherphone.$error.mask" ) Enter a 10 digit phone.
+                .p-field-error(ng-show='scholarshipAppForm.otherphone.$error.required') A phone number is required.
+
+.row.padding-after
+    .col-md-6
+        .form-group
+            label.bootcamp-input-label(for='college') College *
+            .input-group
+                select#college.custom-select.custom-select(name='college', ng-model='student.college', placeholder='Select your home college...', required)
+                    option Harold Washington
+                    option Harry S Truman
+                    option Kennedy-King
+                    option Malcolm X
+                    option Olive-Harvey
+                    option Richard J. Daley
+                    option Wilbur Wright
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.college.$touched')
+                .p-field-error(ng-show='scholarshipAppForm.college.$error.required') Please select your home college.
+
+.row.padding-after
+    .col-md-6
+        .form-group
+            label.bootcamp-input-label(for='roomnumber') Room #
+            .input-group
+                input#roomnumber.form-control.bootcamp-input(type='text', name='roomnumber', placeholder='room number' ng-model="student.roomnumber")
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.roomnumber.$touched')
+                .p-field-error(ng-if="scholarshipAppForm.roomnumber.$touched && scholarshipAppForm.roomnumber.$error.mask" ) Enter a 10 digit phone.
+                .p-field-error(ng-show='scholarshipAppForm.roomnumber.$error.required') A phone number is required.
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='department') Department *
+            .input-group
+                input#department.form-control.bootcamp-input(type='text', name='department', placeholder='name of department' ng-model="student.department" required )
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.department.$touched  || SubmittedClicked')
+                .p-field-error(ng-show='scholarshipAppForm.department.$error.mask') Please enter the name of the department in question.
+                .p-field-error(ng-show='scholarshipAppForm.department.$error.required') Please enter your department.
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='relationship') Relationship w/Person of Concern *
+            .input-group
+                input#relationship.form-control.bootcamp-input(type='text', name='relationship', placeholder='relationship with person of concern' ng-model="student.relationship" required )
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.relationship.$touched  || SubmittedClicked')
+                .p-field-error(ng-show='scholarshipAppForm.relationship.$error.mask') Please enter the name of the person filing report.
+                .p-field-error(ng-show='scholarshipAppForm.relationship.$error.required') Please enter your name.
+
+//<strong>Acknowledgment</strong>
+//.custom-control.custom-checkbox
+    input#privacyconsent.custom-control-input(type='checkbox', name='privacyconsent', ng-model='student.privacyconsent', required)
+    label.custom-control-label(for='privacyconsent') I agree that I am ineligible for the FAFSA, and I want to be considered for a $350 grant.
+    span.glyphicon.glyphicon-check
+    i.fa.fa-check-square-o
+    span.input-group-state
+        span.p-position
+            span.p-text
+                span.p-required-text
+                    i.fa.fa-star
+    span.p-field-cb
+    div(ng-show='covidemergencyfundaltAppForm.$submitted || SubmittedClicked')
+        .p-field-error(ng-show='covidemergencyfundaltAppForm.privacyconsent.$error.required') Please agree that you are ineligible for the FAFSA.
+
+//form(method='post', name='scholarshipAppForm')
+    .form-group.mb-1
+    label.font-weight-bold(for='homecollege')
+        | Please confirm your home college:
+        span.input-group-state
+            span.p-position
+                span.p-text
+                    span.p-required-text
+                        i.fa.fa-star
+
+    .form-group
+        .input-group
+            select#homecollege.custom-select.custom-select(name='homecollege', ng-model='student.homecollege', placeholder='Enter your home college...', required)
+                option Harold Washington
+                option Harry S Truman
+                option Kennedy-King
+                option Malcolm X
+                option Olive-Harvey
+                option Richard J. Daley
+                option Wilbur Wright
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.homecollege.$touched')
+                .p-field-error(ng-show='scholarshipAppForm.homecollege.$error.required') Please select your home college.
+    //.form-group
+        label.font-weight-bold.mb-3
+            | Do you attend any other City Colleges in addition to your home college?&nbsp;
+            span.input-group-state
+                span.p-position
+                    span.p-text
+                        span.p-required-text
+                            i.fa.fa-star
+        .custom-control.custom-radio.custom-control-inline
+            input#customRadioInline1.custom-control-input(type='radio', name='attendOtherCCC', value='yes', ng-model='student.attendOtherCCC', required)
+            label.custom-control-label(for='customRadioInline1') Yes
+        .custom-control.custom-radio.custom-control-inline.mb-3
+            input#customRadioInline2.custom-control-input(type='radio', name='attendOtherCCC', value='no', ng-model='student.attendOtherCCC', required)
+            label.custom-control-label(for='customRadioInline2') No
+    //.form-group(ng-show="student.attendOtherCCC === 'yes'")
+        label(for='othercolleges')
+            | If so, please select any other colleges at which you take classes.
+        select#othercolleges.custom-select.custom-select(multiple='multiple', name='othercolleges', ng-model='student.othercolleges' ng-required="student.attendOtherCCC === 'yes'")
+            option Harold Washington
+            option Harry S Truman
+            option Kennedy-King
+            option Malcolm X
+            option Olive-Harvey
+            option Richard J. Daley
+            option Wilbur Wright
+        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.othercolleges.$touched')
+            .p-field-error(ng-show='scholarshipAppForm.othercolleges.$error.required') Please select the other college(s).
+    .form-group
+        <strong>For what semester would you like to apply your scholarship should you be awarded?</strong>
+        span.input-group-state
+            span.p-position
+                span.p-text
+                    span.p-required-text
+                        i.fa.fa-star
+        br
+        ul
+            li You may select multiple semesters on mobile device by tapping on all semesters that apply.
+            li On a PC or Laptop, hold down CTRL key and click on each semester
+        //label(for='attendterms')
+            | Some funders are interested in providing students with renewable scholarships, which would follow a student
+            | throughout their time at City Colleges. We know plans can change, but please select the semesters you anticipate
+            | attending at City Colleges. If on a mobile device, tap all that apply or hold the CONTROL key on your computer to select all that apply.
+        select#attendterms.custom-select.custom-select(multiple='multiple', name='attendterms', ng-model='student.attendterms', required)
+            option Fall 2020
+            option Spring 2021
+            option Summer 2021
+            option Fall 2021
+            option Spring 2022
+            option Summer 2022
+            option Fall 2022
+        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.attendterms.$touched')
+            .p-field-error(ng-show='scholarshipAppForm.attendterms.$error.required') Please select the term(s)
+    .form-group.mb-1
+        label.font-weight-bold
+            | Do you plan on attending part-time (fewer than 12 credit hours) or full-time (12 or more credit hours)?
+            span.input-group-state
+                span.p-position
+                    span.p-text
+                        span.p-required-text
+                            i.fa.fa-star
+        .custom-control.custom-radio.custom-control-inline
+            input#customRadioInline3.custom-control-input(type='radio', name='attendstatus', value='parttime', ng-model='student.attendstatus', required)
+            label.custom-control-label(for='customRadioInline3') Part-Time
+        .custom-control.custom-radio.custom-control-inline.mb-3
+            input#customRadioInline4.custom-control-input(type='radio', name='attendstatus', value='fulltime', ng-model='student.attendstatus', required)
+            label.custom-control-label(for='customRadioInline4') Full-Time
+    .form-group.mb-1
+        label.font-weight-bold.mb-2
+            | Have you received a scholarship from City Colleges in the past?&nbsp;
+            span.input-group-state
+                span.p-position
+                    span.p-text
+                        span.p-required-text
+                            i.fa.fa-star
+        .custom-control.custom-radio.custom-control-inline
+            input#customRadioInline5.custom-control-input(type='radio', name='schreceived', value='yes', ng-model='student.schreceived', required)
+            label.custom-control-label(for='customRadioInline5') Yes
+        .custom-control.custom-radio.custom-control-inline.mb-3
+            input#customRadioInline6.custom-control-input(type='radio', name='schreceived', value='no', ng-model='student.schreceived', required)
+            label.custom-control-label(for='customRadioInline6') No
+    .form-group.mb-3(ng-show = "student.schreceived === 'yes'")
+        label(for='schreceivename') If you answered yes, which scholarship(s) did you receive?
+        input#schreceivename.form-control(placeholder='Enter any scholarship names you received...', type='text', name='schreceivename', ng-model='student.schreceivename'
+            ng-required="student.schreceivename === 'yes'")
+        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.schreceivename.$touched')
+            .p-field-error(ng-show='scholarshipAppForm.schreceivename.$error.required') Please enter scholarship name(s)
+    .form-group.mb-3
+        label.font-weight-bold(for='schconsider')
+            | If you know the name of a particular scholarship that you’d like to be considered for, please enter it here:
+        input#schconsider.form-control(placeholder='Enter scholarship of interest...', type='text', name='schconsider', ng-model='student.schconsider')
+    .form-group
+        label.font-weight-bold(for='goals')
+            | In 250 words, please tell us about your education and career goals.
+            span.input-group-state
+                span.p-position
+                    span.p-text
+                        span.p-required-text
+                            i.fa.fa-star
+        textarea#goals.form-control(placeholder='Enter educational and career goals...', type='text', name='goals', ng-model='student.goals', required, rows='3')
+        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.goals.$touched')
+            .p-field-error(ng-show='scholarshipAppForm.goals.required') Please enter educational and career goals.
+        //.form-group.mb-3
+            label(for='goals')
+                | In 250 words, please tell us what are your future educational goals and/or career goals.  Describe to us what motivates you to pursue these goals.
+//hr
+//<strong>Data Privacy and Consent</strong>
+//p
+    | I understand that all personal information collected by this application is done so exclusively with my consent.
+    | City Colleges of Chicago will not, in any circumstances, share my personal information with other individuals or organization
+    | outside City Colleges of Chicago without my permission, including public organizations, corporations or individuals, except
+    | when applicable by law. City Colleges of Chicago does not sell, communicate or divulge student information to any mailing lists.
+//p
+    | I certify that all information submitted in this application is true. I understand that my CCC student account will be
+    | reviewed in addition to this application. If any information is found untrue, it will make me ineligible for the scholarship.
+//p
+    | Scholarship Services has a limited number of funds which has criteria set by the door.&nbsp;
+    strong I understand that by submitting this application in no way guarantees the award of scholarship funding.
+    .custom-control.custom-checkbox
+        input#privacyconsent.custom-control-input(type='checkbox', name='privacyconsent', ng-model='student.privacyconsent', required)
+        label.custom-control-label(for='privacyconsent') Agree to terms and conditions
+        span.glyphicon.glyphicon-check
+        i.fa.fa-check-square-o
+        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.privacyconsent.$touched')
+            .p-field-error(ng-show='scholarshipAppForm.privacyconsent.$error.required') Please agree to terms and conditions
+//p
+    button.btn.btn-primary.btn-lg(type='submit' ng-hide='Submitted' ng-click='submitApplication()') Submit
+// /.row
