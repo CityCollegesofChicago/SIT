@@ -9,16 +9,22 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
         $state.go('login');
     } else {
         $scope.student = mvIdentity.currentUser;
-        if($scope.student.hasApplied === true){
-            Notifier.notify("You have already submitted an inquiry.  Please contact support if you believe this is in error.")
-            $timeout(function () {
-                $state.go('thanks');
-            },1000);
+    }
 
-        }
+    //if (!mvIdentity.currentUser) {
+        //$state.go('login');
+    //} else {
+        //$scope.student = mvIdentity.currentUser;
+        //if($scope.student.hasApplied === true){
+            //Notifier.notify("You have already submitted an inquiry.  Please contact support if you believe this is in error.")
+            //$timeout(function () {
+                //$state.go('thanks');
+            //},1000);
+
+        //}
         //$scope.student.birthdate = $filter('date')($scope.student.birthdate.slice(0,4) + "-" + $scope.student.birthdate.slice(4,6) + "-" + $scope.student.birthdate.slice(6), "MM/dd/yyyy");
 
-    }
+    //}
 
     $scope.submitApplication = function () {
         if (!$scope.scholarshipAppForm.$valid ) {
