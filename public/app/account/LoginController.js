@@ -37,7 +37,7 @@ $scope.submitLogin = function () {
 
     if (success && mvIdentity.currentUser.GivenName) {
       Notifier.notify('Welcome ' + mvIdentity.currentUser.GivenName + '.  You have successfully signed in!');
-      $state.go('contractList');
+      $state.go('application');
     }
     else {
       Notifier.error('Username and Password combination incorrect');
