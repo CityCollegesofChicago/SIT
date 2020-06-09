@@ -1,0 +1,71 @@
+doctype html
+.row.padding-after
+    .col-sm-6
+        p.font-weight-bold.mb-3 Student or Employee of Concern Information
+        .form-group
+            label.bootcamp-input-label(for='seFirstName') First Name *
+            .input-group.p-has-icon
+                input#seFirstName.form-control.bootcamp-input(type='text', name='seFirstName', placeholder='student or employee first name' ng-model="student.seFirstName" required)
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seFirstName.$touched  || SubmittedClicked')
+                .p-field-error(ng-show=" scholarshipAppForm.seFirstName.$error.required" ) Please enter the student or employee of concern first name.
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='seMiddleName') Middle Name
+            .input-group
+                input#seMiddleName.form-control.bootcamp-input(type='text', name='seMiddleName', placeholder='student or employee middle name' ng-model="student.seMiddleName")
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='seLastName') Last Name *
+            .input-group.p-has-icon
+                input#seLastName.form-control.bootcamp-input(type='text', name='seLastName', placeholder='student or employee last name' ng-model="student.seLastName" required)
+                span.p-field-cb
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seLastName.$touched  || SubmittedClicked')
+                .p-field-error(ng-show=" scholarshipAppForm.seLastName.$error.required" ) Please enter the student or employee of concern last name.
+
+.row.padding-after
+    .col-md-6
+        .form-group
+            label.bootcamp-input-label(for='personStatus') Person Status *
+            .input-group.p-has-icon
+                select#personStatus.custom-select.custom-select(name='personStatus', ng-model='student.personStatus', placeholder='None', required)
+                    option Student
+                    option Employee
+                    option Other
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.personStatus.$touched')
+                .p-field-error(ng-show='scholarshipAppForm.personStatus.$error.required') Please select a person status.
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='otherStatus') If other, explain:
+            .input-group
+                input#otherStatus.form-control.bootcamp-input(type='text', name='otherStatus', placeholder='If other, explain' ng-model="student.otherStatus")
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='studentId') Student/Employee ID (if applicable)
+            .input-group
+                input#studentId.form-control.bootcamp-input(type='text' name='studentId', placeholder='999999999', ng-model="student.studentId")
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='seEmail') Student/Employer Email
+            .input-group
+                input#seEmail.form-control.bootcamp-input(type='email', name='seEmail', placeholder='youremail@ccc.edu' ng-model="student.seEmail")
+            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seEmail.$touched')
+                .p-field-error(ng-show='scholarshipAppForm.seEmail.$error.pattern') Invalid email.
+
+.row.padding-after
+    .col-md-6
+        .form-group
+            label.bootcamp-input-label(for='sePhone') Student/Employer Phone (111-111-1111)
+            .input-group
+                input#sePhone.form-control.bootcamp-input(type='text', name='sePhone', placeholder='999.999.9999' ng-model="student.sePhone")
+

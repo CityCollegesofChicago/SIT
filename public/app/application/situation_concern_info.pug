@@ -1,0 +1,90 @@
+doctype html
+.row.padding-after
+    .col-sm-6
+        p.font-weight-bold.mb-3 Information about Situation Causing Concern
+        .form-group
+            label.bootcamp-input-label (for='reportDescription') Choose one of the selection options below which best describes what you are reporting:
+            .custom-control.custom-radio.custom-control.mb-3
+                input#customRadioVertical1.custom-control-input(type='radio', name='reportDescription', value='Hostile or disruptive behavior but without immediate threat to safety', ng-model='student.reportDescription')
+                label.custom-control-label(for='customRadioVertical1') Hostile or disruptive behavior but without immediate threat to safety
+            .custom-control.custom-radio.custom-control.mb-3
+                input#customRadioVertical2.custom-control-input(type='radio', name='reportDescription', value='Behavior that indicates or suggests risk of self-harm but without apparent immediate threat to safety', ng-model='student.reportDescription')
+                label.custom-control-label(for='customRadioVertical2') Behavior that indicates or suggests risk of self-harm but without apparent immediate threat to safety
+            .custom-control.custom-radio.custom-control.mb-3
+                input#customRadioVertical3.custom-control-input(type='radio', name='reportDescription', value='Inappropriate or concerning behavior that is not disruptive or only minimally disruptive', ng-model='student.reportDescription')
+                label.custom-control-label(for='customRadioVertical3') Inappropriate or concerning behavior that is not disruptive or only minimally disruptive
+            .custom-control.custom-radio.custom-control.mb-3
+                input#customRadioVertical4.custom-control-input(type='radio', name='reportDescription', value='Behavior or appearance suggesting possible personal problems', ng-model='student.reportDescription')
+                label.custom-control-label(for='customRadioVertical4') Behavior or appearance suggesting possible personal problems
+            .custom-control.custom-radio.custom-control.mb-3
+                input#customRadioVertical5.custom-control-input(type='radio', name='reportDescription', value='A person’s direct request for emotional and/or practical support', ng-model='student.reportDescription')
+                label.custom-control-label(for='customRadioVertical5') A person’s direct request for emotional and/or practical support
+            .custom-control.custom-radio.custom-control.mb-3
+                input#customRadioVertical6.custom-control-input(type='radio', name='reportDescription', value='Other', ng-model='student.reportDescription')
+                label.custom-control-label(for='customRadioVertical6') Other
+        hr.mb-3
+        p.font-weight-normal.mb-3
+            To learn more about types of behaviors that might be concerning, visit:&nbsp;
+            a(href='http://www.ccc.edu/departments/Pages/Consultation-for-Faculty.aspx', title='Link to Consultation for Faculty Web Page') http://www.ccc.edu/departments/Pages/Consultation-for-Faculty.aspx
+            |.
+        hr.mb-3
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.font-weight-normal(for='concerningBehavior')
+                | Describe the concerning behavior, situation and/or incident. Be as objective as possible and focus
+                | on concrete observations.
+            textarea#concerningBehavior.form-control(placeholder='Describe the concerning behavior, situation and/or incident.', type='text', name='concerningBehavior', ng-model='student.concerningBehavior', rows='3')
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='SituationConcernDate') Select the date you became aware of situation causing concern for the student/employee?
+                input#SituationConcernDate.form-control.bootcamp-input(type='text', name='SituationConcernDate', placeholder='07/20/2020' ng-model="student.SituationConcernDate")
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.bootcamp-input-label(for='SituationConcernTime') Time you became aware of situation causing concern for the student/employee?
+                input#SituationConcernTime.form-control.bootcamp-input(type='text', name='SituationConcernTime', placeholder='12:00 PM' ng-model="student.SituationConcernTime")
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.font-weight-normal(for='incidentAddressed')
+                | Was the concerning behavior, situation or incident addressed by you or anyone else? If so, how
+                | was the situation handled?
+            textarea#incidentAddressed.form-control(placeholder='Was the incident addressed by you or anyone else?', type='text', name='incidentAddressed', ng-model='student.incidentAddressed', rows='3')
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.font-weight-normal(for='concernsReported')
+                | Have you reported your concerns about the student/employee to anyone else?
+                | If so, to whom and when?
+            textarea#concernsReported.form-control(placeholder='Have you reported your concerns about the student/employee to anyone else.', type='text', name='concernsReported', ng-model='student.concernsReported', rows='3')
+
+.row.padding-after
+    .col-md-6
+        .form-group
+            label.bootcamp-input-label(for='followupAction') Follow-Up Action Needed?
+            .input-group
+                select#followupAction.custom-select.custom-select(name='followupAction', ng-model='student.followupAction', placeholder='None')
+                    option For your information only. No follow-up requested.
+                    option Please provide me with suggested interventions.
+                    option Please see Person of Concern regarding information.
+                    option Have Wellness Center contact me for consultation.
+                    option Other
+
+.row.padding-after
+    .col-sm-6
+        .form-group
+            label.font-weight-normal(for='otherStatus2')
+                | If other follow-up action is required, please provide an explanation as to why it is needed:
+            textarea#otherStatus2.form-control(placeholder='If other follow-up action is required, please provide an explanation as to why it is needed.', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
+        hr.mb-3
+        p.font-weight-normal.mb-3
+            Note: Attach any files that support your report by clicking the button below (optional). File
+            | upload size must be 4MB or less, and the file formats must be Adobe PDF (.pdf).
+        hr.mb-3
