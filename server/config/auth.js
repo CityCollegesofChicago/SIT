@@ -21,8 +21,8 @@ exports.authenticate = function (req, res) {
             } else {
                 result.username = user.username;
                 //console.log('success: ' + Object.getOwnPropertyNames(result));
-                //res.send({success: true, result: result });
-                sql.hasApplied(res,result);
+                res.send({success: true, result: result });
+                //sql.hasApplied(res,result);
             }
 
         }

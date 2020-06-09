@@ -18,7 +18,7 @@ angular.module('sitApp').controller('loginController', function($scope, $http, $
 
       if (success && mvIdentity.currentUser.GivenName) {
         Notifier.notify('Welcome ' + mvIdentity.currentUser.GivenName + '.  You have successfully signed in!');
-        $state.go('application');
+        $state.go('application.form');
       }
       else {
         Notifier.error('Username and Password combination incorrect');

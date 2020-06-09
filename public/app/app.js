@@ -35,9 +35,17 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
         $stateProvider.state('application',
             {
                 url: '/sit/application',
+                abstract: true,
                 templateUrl: '/sit/partials/application/applicationForm',
                 controller: 'applicationController'
             });
+
+        $stateProvider.state('application.form',
+            {
+                url: '/form',
+                templateUrl: '/sit/partials/application/general_formfield_info'
+            });
+
         $stateProvider.state('login',
             {
                 url: '/sit/login',
@@ -55,11 +63,7 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
 
             $state.go('login');
         });
-        $urlRouterProvider.when('/sit/', function ($state) {
-
-            $state.go('login');
-        });
-        $urlRouterProvider.when('/sit', function ($state) {
+        $urlRouterProvider.when('/SIT', function ($state) {
 
             $state.go('login');
         });
@@ -67,6 +71,11 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
 
             $state.go('login');
         });
+        $urlRouterProvider.when('/SIT/', function ($state) {
+
+            $state.go('login');
+        });
+        
 
         $urlRouterProvider.otherwise(function(){ 'login'});
 
