@@ -13,7 +13,7 @@ doctype html
                 .col-sm-6
                     p.font-weight-bold.mb-3 Reporting Person's Information
                     .form-group
-                        label.bootcamp-input-label(for='reportDate') Date of Report *
+                        label.bootcamp-input-label.font-weight-bold(for='reportDate') Date of Report *
                         .input-group.p-has-icon
                             input#reportDate.form-control.bootcamp-input(type='text', name='reportDate', ui-mask='07/20/2020' ui-mask-placeholder ui-options="{clearOnBlur:false}" placeholder='07/20/2020' ng-model="student.reportDate" required)
                             span.p-field-cb
@@ -24,9 +24,9 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='name') Name *
+                        label.bootcamp-input-label.font-weight-bold(for='name') Name *
                         .input-group
-                            input#name.form-control.bootcamp-input(type='text', name='name', placeholder='name of person filing report' ng-model="student.name" required )
+                            input#name.form-control.bootcamp-input(type='text', name='name', placeholder='Enter name of person filing report' ng-model="student.name" required )
                             span.p-field-cb
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.name.$touched  || SubmittedClicked')
                             .p-field-error(ng-show='scholarshipAppForm.name.$error.required') Please enter your name.
@@ -34,7 +34,7 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='email') Email * (Receives report)
+                        label.bootcamp-input-label.font-weight-bold(for='email') Email * (Receives report)
                         .input-group
                             input#email.form-control.bootcamp-input(type='email', name='email', placeholder='youremail@ccc.edu' ng-model="student.email" required )
                             span.p-field-cb
@@ -59,7 +59,7 @@ doctype html
             .row.padding-after
                 .col-md-6
                     .form-group
-                        label.bootcamp-input-label(for='college') College *
+                        label.bootcamp-input-label.font-weight-bold(for='college') College *
                         .input-group
                             select#college.custom-select.custom-select(name='college', ng-model='student.college', placeholder='None', required)
                                 option Harold Washington
@@ -82,7 +82,7 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='department') Department *
+                        label.bootcamp-input-label.font-weight-bold(for='department') Department *
                         .input-group
                             input#department.form-control.bootcamp-input(type='text', name='department', placeholder='name of department' ng-model="student.department" required )
                             span.p-field-cb
@@ -92,7 +92,7 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='relationship') Relationship w/Person of Concern *
+                        label.bootcamp-input-label.font-weight-bold(for='relationship') Relationship w/Person of Concern *
                         .input-group
                             input#relationship.form-control.bootcamp-input(type='text', name='relationship', placeholder='relationship with person of concern' ng-model="student.relationship" required )
                             span.p-field-cb
@@ -103,7 +103,7 @@ doctype html
                 .col-sm-6
                     p.font-weight-bold.mb-3 Student or Employee of Concern Information
                     .form-group
-                        label.bootcamp-input-label(for='seFirstName') First Name *
+                        label.bootcamp-input-label.font-weight-bold(for='seFirstName') First Name *
                         .input-group.p-has-icon
                             input#seFirstName.form-control.bootcamp-input(type='text', name='seFirstName', placeholder='student or employee first name' ng-model="student.seFirstName" required)
                             span.p-field-cb
@@ -120,7 +120,7 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='seLastName') Last Name *
+                        label.bootcamp-input-label.font-weight-bold(for='seLastName') Last Name *
                         .input-group.p-has-icon
                             input#seLastName.form-control.bootcamp-input(type='text', name='seLastName', placeholder='student or employee last name' ng-model="student.seLastName" required)
                             span.p-field-cb
@@ -130,7 +130,7 @@ doctype html
             .row.padding-after
                 .col-md-6
                     .form-group
-                        label.bootcamp-input-label(for='personStatus') Person Status *
+                        label.bootcamp-input-label.font-weight-bold(for='personStatus') Person Status *
                         .input-group.p-has-icon
                             select#personStatus.custom-select.custom-select(name='personStatus', ng-model='student.personStatus', placeholder='None', required)
                                 option Student
@@ -233,7 +233,7 @@ doctype html
                         label.font-weight-normal(for='concernsReported')
                             | Have you reported your concerns about the student/employee to anyone else?
                             | If so, to whom and when?
-                        textarea#concernsReported.form-control(placeholder='Have you reported your concerns about the student/employee to anyone else.', type='text', name='concernsReported', ng-model='student.concernsReported', rows='3')
+                        textarea#concernsReported.form-control(placeholder='Enter concerns reported about the student/employee if applicable.', type='text', name='concernsReported', ng-model='student.concernsReported', rows='3')
 
             .row.padding-after
                 .col-md-6
@@ -252,19 +252,10 @@ doctype html
                     .form-group
                         label.font-weight-normal(for='otherStatus2')
                             | If other follow-up action is required, please provide an explanation as to why it is needed:
-                        textarea#otherStatus2.form-control(placeholder='If other follow-up action is required, please provide an explanation as to why it is needed.', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
+                        textarea#otherStatus2.form-control(placeholder='Enter other follow-up action explanation if needed.', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
                     hr.mb-3
                     p.font-weight-normal.mb-3
-                        Note: Attach any files that support your report by clicking the button below (optional). File
+                        | Note: Attach any files that support your report by clicking the button below (optional). File
                         | upload size must be 4MB or less, and the file formats must be Adobe PDF (.pdf).
                     hr.mb-3
-            hr
-            //form(method='post', name='scholarshipAppForm')
-                div(ui-view="student_employeeconcern_info")
-
-            //hr
-            //form(method='post', name='scholarshipAppForm')
-                div(ui-view="situation_concern_info")
-
-            //hr
             button.btn.btn-primary.btn-lg(type='submit' ng-hide='Submitted' ng-click='submitApplication()') Submit
