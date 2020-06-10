@@ -98,7 +98,7 @@ doctype html
                             span.p-field-cb
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.relationship.$touched  || SubmittedClicked')
                             .p-field-error(ng-show='scholarshipAppForm.relationship.$error.required') Please enter your name.
-            hr
+                hr
             .row.padding-after
                 .col-sm-6
                     p.font-weight-bold.mb-3 Student or Employee of Concern Information
@@ -168,8 +168,7 @@ doctype html
                         label.bootcamp-input-label(for='sePhone') Student/Employer Phone (111-111-1111)
                         .input-group
                             input#sePhone.form-control.bootcamp-input(type='text', name='sePhone', placeholder='999.999.9999' ng-model="student.sePhone")
-
-            hr
+                hr
             .row.padding-after
                 .col-sm-6
                     p.font-weight-bold.mb-3 Information about Situation Causing Concern
