@@ -75,7 +75,7 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
 
             $state.go('login');
         });
-        
+
 
         $urlRouterProvider.otherwise(function(){ 'login'});
 
