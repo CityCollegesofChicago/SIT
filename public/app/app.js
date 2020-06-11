@@ -35,7 +35,6 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
         $stateProvider.state('application',
             {
                 url: '/sit/application',
-                //abstract: true,
                 templateUrl: '/sit/partials/application/applicationForm',
                 controller: 'applicationController'
             });
