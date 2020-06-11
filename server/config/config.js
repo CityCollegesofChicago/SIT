@@ -8,7 +8,7 @@ module.exports  = {
                 user: 'sa',
                 password: 'IamSQLadmin',
                 server: '10.27.251.46',
-                database: 'scholarshipsPreApp'
+                database: 'SIT'
             },
 			port: process.env.PORT || 5000,
             virtualDirPath: process.env.virtualDirPath || '',
@@ -26,7 +26,7 @@ module.exports  = {
                 //server: '10.27.251.34', //doSQL07.ccc.edu...added 03/09/2020...
                 server: '10.27.251.49', //doSQL04.ccc.edu...revised 03/09/2020...
                 //server: '13.0.5026.0', //doSQL04.ccc.edu...revised 03/09/2020...
-                database: 'scholarshipsPreApp'
+                database: 'SIT'
             },
             port: process.env.PORT || 5000,
             virtualDirPath: process.env.virtualDirPath || '',
