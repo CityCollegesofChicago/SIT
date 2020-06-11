@@ -121,9 +121,9 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='otherStatus') If other, explain:
+                        label.bootcamp-input-label(for='otherStatus') If other person status, explain (if applicable):
                         .input-group
-                            input#otherStatus.form-control.bootcamp-input(type='text', name='otherStatus', placeholder='If other, explain...' ng-model="student.otherStatus")
+                            input#otherStatus.form-control.bootcamp-input(type='text', name='otherStatus', placeholder='If other person status (if applicable)...' ng-model="student.otherStatus")
 
             .row.padding-after
                 .col-sm-6
@@ -135,7 +135,7 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='seEmail') Student/Employer Email
+                        label.bootcamp-input-label(for='seEmail') Student/Employer Email (if applicable)
                         .input-group
                             input#seEmail.form-control.bootcamp-input(type='email', name='seEmail', placeholder='youremail@ccc.edu' ng-model="student.seEmail")
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seEmail.$touched')
@@ -144,7 +144,7 @@ doctype html
             .row.padding-after
                 .col-md-6
                     .form-group
-                        label.bootcamp-input-label(for='sePhone') Student/Employer Phone (111-111-1111)
+                        label.bootcamp-input-label(for='sePhone') Student/Employer Phone (if applicable)
                         .input-group
                             input#sePhone.form-control.bootcamp-input(type='text', name='sePhone', placeholder='999-999-9999' ng-model="student.sePhone")
                     hr
