@@ -2,7 +2,7 @@ doctype html
 .container
     .row
         .col-sm-6.mb-2
-            h2 Reporting Person's Login Profile
+            h2.mb-3 Reporting Person's Login Profile
             p.font-weight-bold Name: {{student.DisplayName}}
             p.font-weight-bold Id Number: {{student.EmployeeNumber}}
             p.font-weight-bold Email Address: {{student.EmailAddress}}
@@ -12,6 +12,7 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     p.font-weight-bold.mb-3 Reporting Person's Submission Information
+                    p.font-weight-bold.mb-3 (* Required)
                     .form-group
                         label.bootcamp-input-label.font-weight-bold(for='reportDate') Date of Report *
                         .input-group.p-has-icon
@@ -56,14 +57,14 @@ doctype html
                     .form-group
                         label.bootcamp-input-label(for='roomNumber') Room #
                         .input-group
-                            input#roomNumber.form-control.bootcamp-input(type='text', name='roomNumber', placeholder='T-123' ng-model="student.roomNumber")
+                            input#roomNumber.form-control.bootcamp-input(type='text', name='roomNumber', placeholder='Enter room number...' ng-model="student.roomNumber")
 
             .row.padding-after
                 .col-sm-6
                     .form-group
                         label.bootcamp-input-label.font-weight-bold(for='department') Department *
                         .input-group
-                            input#department.form-control.bootcamp-input(type='text', name='department', placeholder='name of department' ng-model="student.department" required )
+                            input#department.form-control.bootcamp-input(type='text', name='department', placeholder='Enter department name...' ng-model="student.department" required )
                             span.p-field-cb
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.department.$touched  || SubmittedClicked')
                             .p-field-error(ng-show='scholarshipAppForm.department.$error.required') Please enter your department.
@@ -73,7 +74,7 @@ doctype html
                     .form-group
                         label.bootcamp-input-label.font-weight-bold(for='relationship') Relationship w/Person of Concern *
                         .input-group
-                            input#relationship.form-control.bootcamp-input(type='text', name='relationship', placeholder='relationship with person of concern' ng-model="student.relationship" required )
+                            input#relationship.form-control.bootcamp-input(type='text', name='relationship', placeholder='Enter relationship with person of concern...' ng-model="student.relationship" required )
                             span.p-field-cb
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.relationship.$touched  || SubmittedClicked')
                             .p-field-error(ng-show='scholarshipAppForm.relationship.$error.required') Please enter your name.
@@ -84,7 +85,7 @@ doctype html
                     .form-group
                         label.bootcamp-input-label.font-weight-bold(for='seFirstName') First Name *
                         .input-group.p-has-icon
-                            input#seFirstName.form-control.bootcamp-input(type='text', name='seFirstName', placeholder='student or employee first name' ng-model="student.seFirstName" required)
+                            input#seFirstName.form-control.bootcamp-input(type='text', name='seFirstName', placeholder='Enter student/employee of concern first name...' ng-model="student.seFirstName" required)
                             span.p-field-cb
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seFirstName.$touched  || SubmittedClicked')
                             .p-field-error(ng-show=" scholarshipAppForm.seFirstName.$error.required" ) Please enter the student or employee of concern first name.
@@ -94,14 +95,14 @@ doctype html
                     .form-group
                         label.bootcamp-input-label(for='seMiddleName') Middle Name
                         .input-group
-                            input#seMiddleName.form-control.bootcamp-input(type='text', name='seMiddleName', placeholder='student or employee middle name' ng-model="student.seMiddleName")
+                            input#seMiddleName.form-control.bootcamp-input(type='text', name='seMiddleName', placeholder='Enter student/employee of concern middle name...' ng-model="student.seMiddleName")
 
             .row.padding-after
                 .col-sm-6
                     .form-group
                         label.bootcamp-input-label.font-weight-bold(for='seLastName') Last Name *
                         .input-group.p-has-icon
-                            input#seLastName.form-control.bootcamp-input(type='text', name='seLastName', placeholder='student or employee last name' ng-model="student.seLastName" required)
+                            input#seLastName.form-control.bootcamp-input(type='text', name='seLastName', placeholder='Enter student/employee of concern last name...' ng-model="student.seLastName" required)
                             span.p-field-cb
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seLastName.$touched  || SubmittedClicked')
                             .p-field-error(ng-show=" scholarshipAppForm.seLastName.$error.required" ) Please enter the student or employee of concern last name.
@@ -123,7 +124,7 @@ doctype html
                     .form-group
                         label.bootcamp-input-label(for='otherStatus') If other, explain:
                         .input-group
-                            input#otherStatus.form-control.bootcamp-input(type='text', name='otherStatus', placeholder='If other, explain' ng-model="student.otherStatus")
+                            input#otherStatus.form-control.bootcamp-input(type='text', name='otherStatus', placeholder='If other, explain...' ng-model="student.otherStatus")
 
             .row.padding-after
                 .col-sm-6
@@ -146,7 +147,7 @@ doctype html
                     .form-group
                         label.bootcamp-input-label(for='sePhone') Student/Employer Phone (111-111-1111)
                         .input-group
-                            input#sePhone.form-control.bootcamp-input(type='text', name='sePhone', placeholder='999.999.9999' ng-model="student.sePhone")
+                            input#sePhone.form-control.bootcamp-input(type='text', name='sePhone', placeholder='999-999-9999' ng-model="student.sePhone")
                     hr
             .row.padding-after
                 .col-sm-6
@@ -212,7 +213,7 @@ doctype html
                         label.font-weight-normal(for='concernsReported')
                             | Have you reported your concerns about the student/employee to anyone else?
                             | If so, to whom and when?
-                        textarea#concernsReported.form-control(placeholder='Enter concerns reported about the student/employee if applicable.', type='text', name='concernsReported', ng-model='student.concernsReported', rows='3')
+                        textarea#concernsReported.form-control(placeholder='Enter concerns reported about the student/employee if applicable...', type='text', name='concernsReported', ng-model='student.concernsReported', rows='3')
 
             .row.padding-after
                 .col-md-6
@@ -231,7 +232,7 @@ doctype html
                     .form-group
                         label.font-weight-normal(for='otherStatus2')
                             | If other follow-up action is required, please provide an explanation as to why it is needed:
-                        textarea#otherStatus2.form-control(placeholder='Enter other follow-up action explanation if needed.', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
+                        textarea#otherStatus2.form-control(placeholder='Enter other follow-up action explanation if needed...', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
                     hr.mb-3
                     p.font-weight-normal.mb-3
                         | Note: Attach any files that support your report by clicking the button below (optional). File
