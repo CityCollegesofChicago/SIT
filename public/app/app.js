@@ -35,16 +35,16 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
         $stateProvider.state('application',
             {
                 url: '/sit/application',
-                abstract: true,
+                //abstract: true,
                 templateUrl: '/sit/partials/application/applicationForm',
                 controller: 'applicationController'
             });
 
-        $stateProvider.state('application.form',
-        {
-            url: '/form',
-                templateUrl: '/sit/partials/application/applicationForm'
-        });
+        //$stateProvider.state('application.form',
+        //{
+            //url: '/form',
+                //templateUrl: '/sit/partials/application/applicationForm'
+        //});
 
         //$stateProvider
             //.state('application.screen', {
