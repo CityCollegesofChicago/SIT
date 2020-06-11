@@ -2,12 +2,13 @@ doctype html
 .container
     .row
         .col-sm-4.mb-2
-            h2 Your Login Profile
+            h2 Reporting Person's Login Profile
             p.font-weight-bold Name: {{student.DisplayName}}
             p.font-weight-bold Id Number: {{student.EmployeeNumber}}
+            p.font-weight-bold Email Address: {{student.EmailAddress}}
             hr
         .col-sm-12.mb-2
-            h2 Please enter the information below and click submit to save your responses.
+            h2.mb-3 Please enter the information below and click submit to save your responses.
             .row.padding-after
                 .col-sm-6
                     p.font-weight-bold.mb-3 Reporting Person's Information
@@ -19,27 +20,6 @@ doctype html
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.reportDate.$touched  || SubmittedClicked')
                             .p-field-error(ng-if=" scholarshipAppForm.reportDate.$error.mask" ) Please enter a report date in this form 07/20/2020.
                             .p-field-error(ng-show=" scholarshipAppForm.reportDate.$error.required" ) Please enter your report date.
-
-            .row.padding-after
-                .col-sm-6
-                    .form-group
-                        label.bootcamp-input-label.font-weight-bold(for='name') Name *
-                        .input-group
-                            input#name.form-control.bootcamp-input(type='text', name='name', placeholder='Enter name of person filing report' ng-model="student.name" required )
-                            span.p-field-cb
-                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.name.$touched  || SubmittedClicked')
-                            .p-field-error(ng-show='scholarshipAppForm.name.$error.required') Please enter your name.
-
-            .row.padding-after
-                .col-sm-6
-                    .form-group
-                        label.bootcamp-input-label.font-weight-bold(for='email') Email * (Receives report)
-                        .input-group
-                            input#email.form-control.bootcamp-input(type='email', name='email', placeholder='youremail@ccc.edu' ng-model="student.email" required )
-                            span.p-field-cb
-                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.email.$touched  || SubmittedClicked')
-                            .p-field-error(ng-show='scholarshipAppForm.email.$error.email') Invalid CCC email.
-                            .p-field-error(ng-show='scholarshipAppForm.email.$error.required') Please enter a CCC email.
 
             .row.padding-after
                 .col-md-6
