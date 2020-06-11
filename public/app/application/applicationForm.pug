@@ -11,7 +11,7 @@ doctype html
             h2.mb-3 Please enter the information below and click submit to save your responses.
             .row.padding-after
                 .col-sm-6
-                    p.font-weight-bold.mb-3 Reporting Person's Submission Information (* Required)
+                    p.font-weight-bold.mb-3 Reporting Person's Submission Information (* required)
                     .form-group
                         label.bootcamp-input-label.font-weight-bold(for='reportDate') Date of Report *
                         .input-group.p-has-icon
@@ -121,32 +121,32 @@ doctype html
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='otherStatus') If other person status, explain (if applicable):
+                        label.bootcamp-input-label(for='otherStatus') If other person status, explain:
                         .input-group
-                            input#otherStatus.form-control.bootcamp-input(type='text', name='otherStatus', placeholder='If other person status (if applicable)...' ng-model="student.otherStatus")
+                            input#otherStatus.form-control.bootcamp-input(type='text', name='otherStatus', placeholder='If other person status...optional...' ng-model="student.otherStatus")
 
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='studentId') Student/Employee ID (if applicable)
+                        label.bootcamp-input-label(for='studentId') Student/Employee ID
                         .input-group
-                            input#studentId.form-control.bootcamp-input(type='text' name='studentId', placeholder='999999999', ng-model="student.studentId")
+                            input#studentId.form-control.bootcamp-input(type='text' name='studentId', placeholder='999999999...optional...', ng-model="student.studentId")
 
             .row.padding-after
                 .col-sm-6
                     .form-group
-                        label.bootcamp-input-label(for='seEmail') Student/Employer Email (if applicable)
+                        label.bootcamp-input-label(for='seEmail') Student/Employer Email
                         .input-group
-                            input#seEmail.form-control.bootcamp-input(type='email', name='seEmail', placeholder='youremail@ccc.edu' ng-model="student.seEmail")
+                            input#seEmail.form-control.bootcamp-input(type='email', name='seEmail', placeholder='youremail@ccc.edu...optional...' ng-model="student.seEmail")
                         div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seEmail.$touched')
                             .p-field-error(ng-show='scholarshipAppForm.seEmail.$error.pattern') Invalid email.
 
             .row.padding-after
                 .col-md-6
                     .form-group
-                        label.bootcamp-input-label(for='sePhone') Student/Employer Phone (if applicable)
+                        label.bootcamp-input-label(for='sePhone') Student/Employer Phone
                         .input-group
-                            input#sePhone.form-control.bootcamp-input(type='text', name='sePhone', placeholder='999-999-9999' ng-model="student.sePhone")
+                            input#sePhone.form-control.bootcamp-input(type='text', name='sePhone', placeholder='999-999-9999...optional...' ng-model="student.sePhone")
                     hr
             .row.padding-after
                 .col-sm-6
@@ -184,7 +184,7 @@ doctype html
                         label.font-weight-normal(for='concerningBehavior')
                             | Describe the concerning behavior, situation and/or incident. Be as objective as possible and focus
                             | on concrete observations.
-                        textarea#concerningBehavior.form-control(placeholder='Describe the concerning behavior, situation and/or incident.', type='text', name='concerningBehavior', ng-model='student.concerningBehavior', rows='3')
+                        textarea#concerningBehavior.form-control(placeholder='Describe the concerning behavior...optional...', type='text', name='concerningBehavior', ng-model='student.concerningBehavior', rows='3')
 
             .row.padding-after
                 .col-sm-6
@@ -204,7 +204,7 @@ doctype html
                         label.font-weight-normal(for='incidentAddressed')
                             | Was the concerning behavior, situation or incident addressed by you or anyone else? If so, how
                             | was the situation handled?
-                        textarea#incidentAddressed.form-control(placeholder='Was the incident addressed by you or anyone else?', type='text', name='incidentAddressed', ng-model='student.incidentAddressed', rows='3')
+                        textarea#incidentAddressed.form-control(placeholder='Enter if behavior was addressed...optional...', type='text', name='incidentAddressed', ng-model='student.incidentAddressed', rows='3')
 
             .row.padding-after
                 .col-sm-6
@@ -212,7 +212,7 @@ doctype html
                         label.font-weight-normal(for='concernsReported')
                             | Have you reported your concerns about the student/employee to anyone else?
                             | If so, to whom and when?
-                        textarea#concernsReported.form-control(placeholder='Enter concerns reported about the student/employee if applicable...', type='text', name='concernsReported', ng-model='student.concernsReported', rows='3')
+                        textarea#concernsReported.form-control(placeholder='Enter whether the concerns were reported...optional...', type='text', name='concernsReported', ng-model='student.concernsReported', rows='3')
 
             .row.padding-after
                 .col-md-6
@@ -231,7 +231,7 @@ doctype html
                     .form-group
                         label.font-weight-normal(for='otherStatus2')
                             | If other follow-up action is required, please provide an explanation as to why it is needed:
-                        textarea#otherStatus2.form-control(placeholder='Enter other follow-up action explanation if needed...', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
+                        textarea#otherStatus2.form-control(placeholder='Enter if other follow-up action is needed...optional...', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
                     hr.mb-3
                     p.font-weight-normal.mb-3
                         | Note: Attach any files that support your report by clicking the button below (optional). File
