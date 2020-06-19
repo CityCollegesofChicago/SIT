@@ -28,7 +28,7 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
         var file = {};
 
         file.upload = Upload.upload({
-            url: '/sit/api/applicant',
+            url: '/sit/api/application/uploadFile',
             data: {student : $scope.student,
                 files: $scope.files}
         });

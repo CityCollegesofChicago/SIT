@@ -11,7 +11,7 @@ module.exports = function (config, app) {
 
     //app.get(config.virtualDirPath + '/api/applicant', sql.getApplications);
 
-    //app.post( config.virtualDirPath +'/api/applicant/save',multipartyMiddleware, sql.saveApplication);
+    app.post( config.virtualDirPath +'/api/applicant/uploadFile',multipartyMiddleware, sql.insertSupportDocs);
 
     //app.put( config.virtualDirPath +'/api/applicant/:id', sql.updateApplication);
 
