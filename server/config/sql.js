@@ -6,12 +6,45 @@
 
 exports.saveApplication = function(req, res) {
     var applicationData =  req.body.student;
-    saveData(applicationData,res);
+    var files = req.files.files.supportingDocs;
+    console.log(Object.getOwnPropertyNames(files));
+    console.log(Object.getOwnPropertyNames(applicationData));
+
+    saveData(applicationData, files,res);
 };
 
-//exports.hasApplied = function (res,user) {
-    //checkIfApplied(res,user);
-//};
+   var saveFiles = function(files,id,res,result1, email){
+       var file1 = files;
+       var fileData1  =  fs.readFileSync(file1.path);
+
+       console.log("file1: " + ' ' + Object.getOwnPropertyNames(file1));
+
+       new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
+           return pool.request()
+               .input('doc_type1', sql.NVarChar(200), file1.type )
+               .input('binaryData',  sql.VarBinary(sql.MAX), fileData1 )
+               .input('documentname', sql.NVarChar(100), file1.originalFilename )
+               .input('appId', sql.Int, id)
+               .execute('InsertSuppDocs')
+       }).then(function (result) {
+           console.log(result);
+           sql.close();
+           mailService.sendEmail(email, 'submitted');
+           res.send(result1);
+       }).catch(function (err) {
+           console.log('catch in savefiles');
+           res.status(400);
+           console.log("error saving applicant supporting document: " + err.toString());
+           sql.close();
+           return res.send({reason: err.toString()});
+       });
+       sql.on('error', function (err) {
+           sql.close();
+           res.status(400);
+           console.log("error saving error saving applicant supporting document: " + err.toString());
+           return res.send({reason: err.toString()});
+       });
+   };
 
    var saveData = function(applicationData,  res) {
        applicationData.attendterms = applicationData.attendterms.join();
@@ -44,17 +77,17 @@ exports.saveApplication = function(req, res) {
                .input('otherStatus2', sql.NVarChar(sql.MAX), applicationData.otherStatus2)
                .input('distributionNames', sql.NVarChar(250), applicationData.distributionNames)
                .input('dateTimeSubmitted', sql.DateTime, applicationData.dateTimeSubmitted)
-               //.input('privacyconsent', sql.Bit, applicationData.privacyconsent)
-               //.input('attendOtherCCC', sql.NVarChar(10), applicationData.attendOtherCCC)
-               //.input('othercolleges', sql.NVarChar(1000),applicationData.othercolleges?  applicationData.othercolleges.join() : '')
-               //.input('goalsessay', sql.NVarChar(sql.MAX), applicationData.goals)
+               .output('appId',sql.Int)
                .execute('saveApplication')
        }).then(function (result) {
+           console.log("then" );
+           var appId = result.output.appId;
+           console.log('appId: ' + appId);
            sql.close();
            console.log('email address: ' + applicationData.email);
            mailService.sendEmail(applicationData.email);
            res.send(result);
-
+           saveFiles(files, appId,res,result, applicationData.email);
        }).catch(function (err) {
            console.log("catch");
            res.status(400);
@@ -70,26 +103,3 @@ exports.saveApplication = function(req, res) {
            return res.send({reason: err.toString()});
        });
    }
-
-   //var checkIfApplied = function(res,user) {
-       //new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
-           //return pool.request()
-               //.input('studentid', sql.NVarChar(9), user.EmployeeNumber)
-               //.execute('checkApplication')
-       //}).then(function (result) {
-           //sql.close();
-           //user.hasApplied = (result.recordset[0].applicationCount > 0);
-           //console.log('hasApplied: ' + user.hasApplied);
-           //return res.send({success: true, result: user });
-
-       //}).catch(function (err) {
-           //sql.close();
-           //return res.send({success: false, result: user });
-
-       //});
-       //sql.on('error', function (err) {
-           //console.log("error: " + err.message);
-           //sql.close();
-           //res.send({success: false, result: user });
-       //});
-   //};

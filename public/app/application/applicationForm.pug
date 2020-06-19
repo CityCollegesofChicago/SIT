@@ -9,15 +9,17 @@ doctype html
             hr
         .col-sm-12.mb-2
             h2.mb-3 Please enter the information below and click submit to save your responses.
+            form(method='post', name='scholarshipAppForm')
             .row.padding-after
                 .col-sm-6
                     p.font-weight-bold.mb-3 Reporting Person's Submission Information (* required)
                     .form-group
                         label.bootcamp-input-label.font-weight-bold(for='reportDate') Date of Report *
                         .input-group.p-has-icon
-                            input#reportDate.form-control.bootcamp-input(type='text', name='reportDate', ui-mask='07/20/2020' ui-mask-placeholder ui-options="{clearOnBlur:false}" placeholder='07/20/2020' ng-model="student.reportDate" required)
+                            //input#reportDate.form-control.bootcamp-input(type='text', name='reportDate', ui-mask='07/20/2020' ui-mask-placeholder ui-options="{clearOnBlur:false}" placeholder='07/20/2020' ng-model="student.reportDate" required)
+                            input#reportDate.form-control.bootcamp-input(type="date" ui-mask='07/20/2020' ui-mask-placeholder ui-options="{clearOnBlur:false}" placeholder='07/20/2020' ng-model="student.reportDate" required)
                             span.p-field-cb
-                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.reportDate.$touched  || SubmittedClicked')
+                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.reportDate.$touched')
                             .p-field-error(ng-if=" scholarshipAppForm.reportDate.$error.mask" ) Please enter a report date in this form 07/20/2020.
                             .p-field-error(ng-show=" scholarshipAppForm.reportDate.$error.required" ) Please enter your report date.
 
@@ -65,7 +67,7 @@ doctype html
                         .input-group
                             input#department.form-control.bootcamp-input(type='text', name='department', placeholder='Enter department name...' ng-model="student.department" required )
                             span.p-field-cb
-                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.department.$touched  || SubmittedClicked')
+                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.department.$touched')
                             .p-field-error(ng-show='scholarshipAppForm.department.$error.required') Please enter your department.
 
             .row.padding-after
@@ -75,7 +77,7 @@ doctype html
                         .input-group
                             input#relationship.form-control.bootcamp-input(type='text', name='relationship', placeholder='Enter relationship with person of concern...' ng-model="student.relationship" required )
                             span.p-field-cb
-                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.relationship.$touched  || SubmittedClicked')
+                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.relationship.$touched')
                             .p-field-error(ng-show='scholarshipAppForm.relationship.$error.required') Please enter your name.
                     hr
             .row.padding-after
@@ -86,7 +88,7 @@ doctype html
                         .input-group.p-has-icon
                             input#seFirstName.form-control.bootcamp-input(type='text', name='seFirstName', placeholder='Enter student/employee of concern first name...' ng-model="student.seFirstName" required)
                             span.p-field-cb
-                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seFirstName.$touched  || SubmittedClicked')
+                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seFirstName.$touched')
                             .p-field-error(ng-show=" scholarshipAppForm.seFirstName.$error.required" ) Please enter the student or employee of concern first name.
 
             .row.padding-after
@@ -103,7 +105,7 @@ doctype html
                         .input-group.p-has-icon
                             input#seLastName.form-control.bootcamp-input(type='text', name='seLastName', placeholder='Enter student/employee of concern last name...' ng-model="student.seLastName" required)
                             span.p-field-cb
-                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seLastName.$touched  || SubmittedClicked')
+                        div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seLastName.$touched')
                             .p-field-error(ng-show=" scholarshipAppForm.seLastName.$error.required" ) Please enter the student or employee of concern last name.
 
             .row.padding-after
@@ -190,13 +192,15 @@ doctype html
                 .col-sm-6
                     .form-group
                         label.bootcamp-input-label(for='SituationConcernDate') Enter the date you became aware of situation causing concern for the student/employee?
-                            input#SituationConcernDate.form-control.bootcamp-input(type='text', name='SituationConcernDate', placeholder='07/20/2020...optional...' ng-model="student.SituationConcernDate")
+                            //input#SituationConcernDate.form-control.bootcamp-input(type='text', name='SituationConcernDate', placeholder='07/20/2020...optional...' ng-model="student.SituationConcernDate")
+                            input#SituationConcernDate.form-control.bootcamp-input(type="date" ui-mask='07/20/2020' ui-mask-placeholder ui-options="{clearOnBlur:false}" placeholder='07/20/2020' ng-model="student.SituationConcernDate" required)
 
             .row.padding-after
                 .col-sm-6
                     .form-group
                         label.bootcamp-input-label(for='SituationConcernTime') Enter the time you became aware of situation causing concern for the student/employee?
-                            input#SituationConcernTime.form-control.bootcamp-input(type='text', name='SituationConcernTime', placeholder='12:00 PM...optional...' ng-model="student.SituationConcernTime")
+                            //input#SituationConcernTime.form-control.bootcamp-input(type='text', name='SituationConcernTime', placeholder='12:00 PM...optional...' ng-model="student.SituationConcernTime")
+                            input#SituationConcernTime.form-control.bootcamp-input(type="time" min="00:00" max="12:00"  name='SituationConcernTime', placeholder='12:00 PM...optional...' ng-model="student.SituationConcernTime")
 
             .row.padding-after
                 .col-sm-6
@@ -232,9 +236,29 @@ doctype html
                         label.font-weight-normal(for='otherStatus2')
                             | If other follow-up action is required, please provide an explanation as to why it is needed:
                         textarea#otherStatus2.form-control(placeholder='Enter if other follow-up action is needed...optional...', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
-                    hr.mb-3
-                    p.font-weight-normal.mb-3
-                        | Note: Attach any files that support your report by clicking the button below (optional). File
-                        | upload size must be 4MB or less, and the file formats must be Adobe PDF (.pdf).
-                    hr.mb-3
+
+            .row.padding-after
+                .col-sm-6
+                    .form-group
+                        label.bootcamp-input-label(for='documentUploadOne')
+                            | <strong>Note:</strong> Attach any files that support your report by clicking the button below (optional). File
+                            | upload size must be 4MB or less, and the accepted file formats are .pdf, .doc, .docx, .jpg, .png, .gif.
+                        .input-group
+                            input#documentUploadOne.bootcamp-input(type='file', name='documentUploadOne' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docOne',files.supportingDocs.name);")
+                            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadOne.$touched')
+                                .p-field-error(ng-show='scholarshipAppForm.documentUploadOne.$error.pattern') File type not allowed.
+                                .p-field-error(ng-show='scholarshipAppForm.documentUploadOne.$error.maxSize') File is too large.
+                        label.bootcamp-input-label(for='documentUploadTwo')
+                        .input-group
+                            input#documentUploadTwo.bootcamp-input(type='file', name='documentUploadTwo' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docTwo',files.supportingDocs.name);")
+                            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadTwo.$touched')
+                                .p-field-error(ng-show='scholarshipAppForm.documentUploadTwo.$error.pattern') File type not allowed.
+                                .p-field-error(ng-show='scholarshipAppForm.documentUploadTwo.$error.maxSize') File is too large.
+                        label.bootcamp-input-label(for='documentUploadThree')
+                        .input-group
+                            input#documentUploadThree.bootcamp-input(type='file', name='documentUploadThree' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docThree',files.supportingDocs.name);")
+                            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadThree.$touched')
+                                .p-field-error(ng-show='scholarshipAppForm.documentUploadThree.$error.pattern') File type not allowed.
+                                .p-field-error(ng-show='scholarshipAppForm.documentUploadThree.$error.maxSize') File is too large.
+
             button.btn.btn-primary.btn-lg(type='submit' ng-hide='Submitted' ng-click='submitApplication()') Submit

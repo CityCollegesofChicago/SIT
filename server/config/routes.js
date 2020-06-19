@@ -1,15 +1,24 @@
 var
     year_specific = require('./year_specific'),
+    multiparty = require('connect-multiparty'),
+    multipartyMiddleware = multiparty(),
     sql = require('./sql.js'),
     auth = require('./auth');
 
 module.exports = function (config, app) {
 
+    app.post( config.virtualDirPath +'/api/application/save',multipartyMiddleware, sql.saveApplication);
 
+    //app.get(config.virtualDirPath + '/api/applicant', sql.getApplications);
 
+    //app.post( config.virtualDirPath +'/api/applicant/save',multipartyMiddleware, sql.saveApplication);
 
-    app.post( config.virtualDirPath +'/api/application/save', sql.saveApplication);
+    //app.put( config.virtualDirPath +'/api/applicant/:id', sql.updateApplication);
 
+    //app.get(config.virtualDirPath + '/api/files/:id',function (req,res){
+        //console.log('in routes - get file');
+        //sql.getFile(req,res);
+    //});
 
     app.get(config.virtualDirPath + '/partials/*', function (req, res) {
         res.render('../../public/app/' + req.params[0]);

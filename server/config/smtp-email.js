@@ -5,9 +5,11 @@ var nodemailer = require("nodemailer"),
     config = require('./config.js')[env];
 
 var mailOptions = {
-    from: "scholarships@ccc.edu",
-    subject: "Application for the City Colleges of Chicago Scholarship Services was Received",
-    html: '<h4>THANK YOU FOR APPLYING FOR A CITY COLLEGES OF CHICAGO FOUNDATION SCHOLARSHIP!</h4>' +
+    from: "dmacklin@ccc.edu",
+    to: "dmacklin@ccc.edu",
+    subject: "New Person of Concern Report Form",
+    cc: "dmacklin@ccc.edu",
+    html: '<h4>New Person of Concern Report Form Online Submission Listed Below:</h4>' +
         '<strong>WHAT IS NEXT? </strong>' + '<ol>' +
         '<li>Students will be matched to scholarships based on the information provided in the application and in your CCC student portal (e.g., Home College, GPA, Financial Aid information, Credit Hours, Academic Focus Area).</li>' + '<br/>' +
         '<li>CCCF Scholarship criteria varies as the donor of each scholarship fund sets it.</li>' + '<br/>' +

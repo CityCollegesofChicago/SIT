@@ -5,6 +5,11 @@ angular.module('sitApp').factory('Application', function($resource, $q, $http) {
       save :{
           method: 'POST',
           url: '/sit/api/application/save'
+      },
+
+      uploadFile :{
+          method: 'POST',
+          url: '/sit/api/application/uploadFile'
       }
   });
 
