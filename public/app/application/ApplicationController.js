@@ -21,14 +21,14 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
             Notifier.error("Please complete all the required fields.");
             return;
         }
-        $scope.saveForm();
+        $scope.submitFormDocs();
     };
 
-    $scope.saveForm = function () {
+    $scope.submitFormDocs = function () {
         var file = {};
 
         file.upload = Upload.upload({
-            url: '/sit/api/application/uploadFile',
+            url: '/sit/api/applicant',
             data: {student : $scope.student,
                 files: $scope.files}
         });

@@ -1,18 +1,5 @@
-angular.module('sitApp').factory('Application', function($resource, $q, $http) {
+angular.module('sitApp').factory('Applicant', function($resource) {
+    var ApplicantResource = $resource('sit/api/applicant');
 
-  var applicationResource = $resource('/sit/api/application',{}, {
-
-      save :{
-          method: 'POST',
-          url: '/sit/api/application/save'
-      },
-
-      uploadFile :{
-          method: 'POST',
-          url: '/sit/api/application/uploadFile'
-      }
-  });
-
-
-  return applicationResource;
+    return ApplicantResource;
 });

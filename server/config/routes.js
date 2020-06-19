@@ -7,18 +7,18 @@ var
 
 module.exports = function (config, app) {
 
-    app.post( config.virtualDirPath +'/api/application/save',multipartyMiddleware, sql.saveApplication);
+    app.post( config.virtualDirPath +'/api/applicant',multipartyMiddleware, sql.saveApplication);
 
     //app.get(config.virtualDirPath + '/api/applicant', sql.getApplications);
 
-    app.post( config.virtualDirPath +'/api/applicant/uploadFile',multipartyMiddleware, sql.insertSupportDocs);
+    //app.post( config.virtualDirPath +'/api/applicant',sql.insertSuppDocs);
 
     //app.put( config.virtualDirPath +'/api/applicant/:id', sql.updateApplication);
 
-    //app.get(config.virtualDirPath + '/api/files/:id',function (req,res){
-        //console.log('in routes - get file');
-        //sql.getFile(req,res);
-    //});
+    app.get(config.virtualDirPath + '/api/files/:id',function (req,res){
+        console.log('in routes - get file');
+        sql.insertSuppDocs(req,res);
+    });
 
     app.get(config.virtualDirPath + '/partials/*', function (req, res) {
         res.render('../../public/app/' + req.params[0]);
