@@ -19,7 +19,7 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
 
 
     $scope.submitApplication = function () {
-        if (!$scope.scholarshipAppForm.$valid || $scope.Submitted ) {
+        if (!$scope.scholarshipAppForm.$valid) {
             Notifier.error("Please complete all the required fields.");
             return;
         }
