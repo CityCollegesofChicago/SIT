@@ -81,18 +81,15 @@
                .input('followupAction', sql.NVarChar(250), applicationData.followupAction)
                .input('otherStatus2', sql.NVarChar(sql.MAX), applicationData.otherStatus2)
                .input('distributionNames', sql.NVarChar(250), applicationData.distributionNames)
-               .input('dateTimeSubmitted', sql.DateTime, applicationData.dateTimeSubmitted)
-               .output('appId',sql.Int)
+               //.input('dateTimeSubmitted', sql.DateTime, applicationData.dateTimeSubmitted)
+               //.output('appId',sql.Int)
                .execute('saveApplication')
        }).then(function (result) {
-           console.log("then" );
-           var appId = result.output.appId;
-           console.log('appId: ' + appId);
            sql.close();
            console.log('email address: ' + applicationData.email);
            mailService.sendEmail(applicationData.email);
            res.send(result);
-           saveFiles(files, appId,res,result, applicationData.email);
+
        }).catch(function (err) {
            console.log("catch");
            res.status(400);
@@ -107,4 +104,28 @@
            console.log("error saving applicant data: " + err.toString());
            return res.send({reason: err.toString()});
        });
+
+       //}).then(function (result) {   //For file uploads...
+           //console.log("then" );
+           //var appId = result.output.appId;
+           //console.log('appId: ' + appId);
+           //sql.close();
+           //console.log('email address: ' + applicationData.email);
+           //mailService.sendEmail(applicationData.email);
+           //res.send(result);
+           //saveFiles(files, appId,res,result, applicationData.email);
+       //}).catch(function (err) {
+           //console.log("catch");
+           //res.status(400);
+           //console.log("error saving applicant data: " + err.toString());
+           //sql.close();
+           //return res.send({reason: err.toString()});
+       //});
+       //sql.on('error', function (err) {
+           //console.log("error");
+           //sql.close();
+           //res.status(400);
+           //console.log("error saving applicant data: " + err.toString());
+           //return res.send({reason: err.toString()});
+       //});
    }
