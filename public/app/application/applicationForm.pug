@@ -140,8 +140,8 @@ doctype html
                             label.bootcamp-input-label(for='seEmail') Student/Employer Email
                             .input-group
                                 input#seEmail.form-control.bootcamp-input(type='email', name='seEmail', placeholder='youremail@ccc.edu...optional...' ng-model="student.seEmail")
-                            div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seEmail.$touched')
-                                .p-field-error(ng-show='scholarshipAppForm.seEmail.$error.pattern') Invalid email.
+                            //div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.seEmail.$touched')
+                                //.p-field-error(ng-show='scholarshipAppForm.seEmail.$error.pattern') Invalid email.
 
                 .row.padding-after
                     .col-md-6
@@ -242,6 +242,7 @@ doctype html
                             | If other follow-up action is required, please provide an explanation as to why it is needed:
                             .input-group
                                 textarea#otherStatus2.form-control(placeholder='Enter if other follow-up action is needed...optional...', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
+
                 .row.padding-after
                     .col-sm-6
                         .form-group
@@ -251,19 +252,19 @@ doctype html
                             br
                             .input-group
                                 input#documentUploadOne.bootcamp-input(type='file', name='documentUploadOne' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docOne',files.supportingDocs.name);")
-                                div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadOne.$touched')
+                                //div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadOne.$touched')
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadOne.$error.pattern') File type not allowed.
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadOne.$error.maxSize') File is too large.
                             label.bootcamp-input-label(for='documentUploadTwo')
                             .input-group
                                 input#documentUploadTwo.bootcamp-input(type='file', name='documentUploadTwo' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docTwo',files.supportingDocs.name);")
-                                div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadTwo.$touched')
+                                //div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadTwo.$touched')
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadTwo.$error.pattern') File type not allowed.
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadTwo.$error.maxSize') File is too large.
                             label.bootcamp-input-label(for='documentUploadThree')
                             .input-group
                                 input#documentUploadThree.bootcamp-input(type='file', name='documentUploadThree' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docThree',files.supportingDocs.name);")
-                                div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadThree.$touched')
+                                //div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadThree.$touched')
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadThree.$error.pattern') File type not allowed.
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadThree.$error.maxSize') File is too large.
 
