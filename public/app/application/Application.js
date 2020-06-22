@@ -1,5 +1,13 @@
-angular.module('sitApp').factory('Applicant', function($resource) {
-    var ApplicantResource = $resource('sit/api/applicant');
+angular.module('sitApp').factory('Application', function($resource, $q, $http) {
 
-    return ApplicantResource;
+    var applicationResource = $resource('/sit/api/application',{}, {
+
+        save :{
+            method: 'POST',
+            url: '/sit/api/application/save'
+        }
+    });
+
+
+    return applicationResource;
 });

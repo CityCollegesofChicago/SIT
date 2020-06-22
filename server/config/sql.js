@@ -4,50 +4,55 @@
         mailService = require('./smtp-email.js');
 
 
-exports.saveApplication = function(req, res) {
-    var applicationData =  req.body.student;
-    var files = req.files.files.supportingDocs;
-    console.log(Object.getOwnPropertyNames(files));
-    console.log(Object.getOwnPropertyNames(applicationData));
+//exports.saveApplication = function(req, res) {   //File upload code...
+    //var applicationData =  req.body.student;
+    //var files = req.files.files.supportingDocs;
+    //console.log(Object.getOwnPropertyNames(files));
+    //console.log(Object.getOwnPropertyNames(applicationData));
 
-    saveData(applicationData, files,res);
-};
+    //saveData(applicationData, files,res);
+//};
 
-   var saveFiles = function(files,id,res,result1, email){
-       var file1 = files;
-       var fileData1  =  fs.readFileSync(file1.path);
+   //var saveFiles = function(files,id,res,result1, email){
+   //var file1 = files;
+   //var fileData1  =  fs.readFileSync(file1.path);
 
-       console.log("file1: " + ' ' + Object.getOwnPropertyNames(file1));
+   //console.log("file1: " + ' ' + Object.getOwnPropertyNames(file1));
 
-       new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
-           return pool.request()
-               .input('doc_type1', sql.NVarChar(200), file1.type )
-               .input('binaryData',  sql.VarBinary(sql.MAX), fileData1 )
-               .input('documentname', sql.NVarChar(100), file1.originalFilename )
-               .input('appId', sql.Int, id)
-               .execute('InsertSuppDocs')
-       }).then(function (result) {
-           console.log(result);
-           sql.close();
-           mailService.sendEmail(email, 'submitted');
-           res.send(result1);
-       }).catch(function (err) {
-           console.log('catch in savefiles');
-           res.status(400);
-           console.log("error saving applicant supporting document: " + err.toString());
-           sql.close();
-           return res.send({reason: err.toString()});
-       });
-       sql.on('error', function (err) {
-           sql.close();
-           res.status(400);
-           console.log("error saving error saving applicant supporting document: " + err.toString());
-           return res.send({reason: err.toString()});
-       });
+   //new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
+   //return pool.request()
+   //.input('doc_type1', sql.NVarChar(200), file1.type )
+   //.input('binaryData',  sql.VarBinary(sql.MAX), fileData1 )
+   //.input('documentname', sql.NVarChar(100), file1.originalFilename )
+   //.input('appId', sql.Int, id)
+   //.execute('InsertSuppDocs')
+   //}).then(function (result) {
+   //console.log(result);
+   //sql.close();
+   //mailService.sendEmail(email, 'submitted');
+   //res.send(result1);
+   //}).catch(function (err) {
+   //console.log('catch in savefiles');
+   //res.status(400);
+   //console.log("error saving applicant supporting document: " + err.toString());
+   //sql.close();
+   //return res.send({reason: err.toString()});
+   //});
+   //sql.on('error', function (err) {
+   //sql.close();
+   //res.status(400);
+   //console.log("error saving error saving applicant supporting document: " + err.toString());
+   //return res.send({reason: err.toString()});
+   //});
+   //};
+
+   exports.saveApplication = function(req, res) {
+       var applicationData =  req.body.student;
+       saveData(applicationData,res);
    };
 
    var saveData = function(applicationData,  res) {
-       applicationData.attendterms = applicationData.attendterms.join();
+       //applicationData.attendterms = applicationData.attendterms.join();
        new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
            return pool.request()
                .input('reportDate', sql.NVarChar(50), applicationData.reportDate)
