@@ -42,15 +42,17 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
 
     }
 
-    $scope.submitApplication = function () {
-        if (!$scope.scholarshipAppForm.$valid || $scope.Submitted) {
-            Notifier.error("Please complete all the required fields.");
-            return;
-        }
-        $scope.saveForm();
-        //$scope.submitFormDocs();
-    };
 })
+
+    //$scope.submitApplication = function () {
+        //if (!$scope.scholarshipAppForm.$valid || $scope.Submitted) {
+            //Notifier.error("Please complete all the required fields.");
+            //return;
+        //}
+        //$scope.saveForm();
+        //$scope.submitFormDocs();
+    //};
+
     //$scope.submitFormDocs = function () {
         //var file = {};
 
