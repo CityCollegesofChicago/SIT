@@ -52,7 +52,6 @@
    };
 
    var saveData = function(applicationData,  res) {
-       //applicationData.attendterms = applicationData.attendterms.join();
        new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
            return pool.request()
                .input('reportDate', sql.NVarChar(50), applicationData.reportDate)
