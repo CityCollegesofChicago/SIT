@@ -78,7 +78,7 @@ doctype html
                             span.p-field-cb
                             div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.relationship.$touched')
                                 .p-field-error(ng-show='scholarshipAppForm.relationship.$error.required') Please enter your name.
-                    hr
+                        hr
                 .row.padding-after
                     .col-sm-6
                         p.font-weight-bold.mb-3 Student or Employee of Concern Information
@@ -148,7 +148,7 @@ doctype html
                             label.bootcamp-input-label(for='sePhone') Student/Employer Phone
                             .input-group
                                 input#sePhone.form-control.bootcamp-input(type='text', name='sePhone', placeholder='999-999-9999...optional...' ng-model="student.sePhone")
-                    hr
+                        hr
                 .row.padding-after
                     .col-sm-6
                         p.font-weight-bold.mb-3 Information about Situation Causing Concern
@@ -241,13 +241,13 @@ doctype html
                             | If other follow-up action is required, please provide an explanation as to why it is needed:
                             .input-group
                                 textarea#otherStatus2.form-control(placeholder='Enter if other follow-up action is needed...optional...', type='text', name='otherStatus2', ng-model='student.otherStatus2', rows='3')
-                br
                 .row.padding-after
                     .col-sm-6
                         .form-group
                             label.bootcamp-input-label(for='documentUploadOne')
                             | <strong>Note:</strong> Attach any files that support your report by clicking the button below (optional). File
                             | upload size must be 4MB or less, and the accepted file formats are .pdf, .doc, .docx, .jpg, .png, .gif.
+                            br
                             .input-group
                                 input#documentUploadOne.bootcamp-input(type='file', name='documentUploadOne' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docOne',files.supportingDocs.name);")
                                 div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadOne.$touched')
