@@ -80,7 +80,7 @@
                .input('concernsReported', sql.NVarChar(sql.MAX), applicationData.concernsReported)
                .input('followupAction', sql.NVarChar(250), applicationData.followupAction)
                .input('otherStatus2', sql.NVarChar(sql.MAX), applicationData.otherStatus2)
-               .input('distributionNames', sql.NVarChar(250), applicationData.distributionNames)
+               //.input('distributionNames', sql.NVarChar(250), applicationData.distributionNames)
                //.input('dateTimeSubmitted', sql.DateTime, applicationData.dateTimeSubmitted)
                //.output('appId',sql.Int)
                .execute('saveApplication')
