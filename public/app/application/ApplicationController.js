@@ -4,7 +4,7 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
 
     //$scope.files = {};
     $scope.response = {};
-    $scope.student.distributionnames = '';
+    $scope.student.distributionnames = {};
     $scope.Submitted = false;
 
     //$scope.setFileName = function(field, value){
