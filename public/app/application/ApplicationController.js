@@ -1,4 +1,4 @@
-angular.module('sitApp').controller('applicationController',  function ($scope, $filter, $window, $state, $timeout, mvIdentity, Upload, Application, Notifier, usSpinnerService ) {
+angular.module('sitApp').controller('applicationController',  function ($scope, $filter, $window, $state, $timeout, mvIdentity, Application, Upload, Notifier, usSpinnerService ) {
 
     $window.scrollTo(0, 0);
 
