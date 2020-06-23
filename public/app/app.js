@@ -2,6 +2,12 @@
 var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload','as.sortable', 'ui.mask', 'ui.bootstrap', 'ngAnimate', 'angularSpinner' ])
     .config(function ($stateProvider,  $urlRouterProvider, $locationProvider) {
 
+        var routeRoleChecks = {
+            admin: {auth: function(mvAuth) {
+                    return mvAuth.authorizeCurrentUserForRoute('admin')
+                }}
+        };
+
         $stateProvider.state('admin',
             {
                 url: '/sit/admin',
@@ -13,7 +19,7 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
             {
                 url: '/sit/admin/pocReportList',
                 templateUrl: "/sit/partials/admin/pocReportList",
-                controller: "AdminCListController",
+                controller: "AdminListController",
             });
 
         $stateProvider.state('login',
@@ -79,7 +85,7 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
 
 
         $locationProvider.html5Mode(true);
-        
+
     });
 
 angular.module('sitApp').run(function ($rootScope, $state) {
