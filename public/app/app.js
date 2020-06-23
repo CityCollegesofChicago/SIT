@@ -1,24 +1,34 @@
 'use strict';
 var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload','as.sortable', 'ui.mask', 'ui.bootstrap', 'ngAnimate', 'angularSpinner' ])
     .config(function ($stateProvider,  $urlRouterProvider, $locationProvider) {
-        // var routeRoleChecks = {
-        //     admin: {auth: function(mvAuth) {
-        //         return mvAuth.authorizeCurrentUserForRoute('admin')
-        //     }}
-        // };
-        // $stateProvider.state('admin',
-        //     {
-        //         url: '/scholarshipApp/admin',
-        //         templateUrl: "/scholarshipApp/partials/account/login",
-        //         controller: "loginController"
-        //     });
-        // $stateProvider.state('adminList',
-        //     {
-        //         url: '/scholarshipApp/admin/applicantList',
-        //         templateUrl: "/scholarshipApp/partials/admin/applicantList",
-        //         controller: "applicantListController",
-        //         resolve: routeRoleChecks.admin
-        //     });
+
+        $stateProvider.state('admin',
+            {
+                url: '/sit/admin',
+                templateUrl: "/sit/partials/account/login",
+                controller: "loginController"
+            });
+
+        $stateProvider.state('pocReportList',
+            {
+                url: '/sit/admin/pocReportList',
+                templateUrl: "/sit/partials/admin/pocReportList",
+                controller: "AdminCListController",
+            });
+
+        $stateProvider.state('login',
+            {
+                url: '/sit/login',
+                templateUrl: '/sit/partials/account/login',
+                controller: 'loginController'
+            });
+
+        $stateProvider.state('application',
+            {
+                url: '/sit/application',
+                templateUrl: '/sit/partials/application/applicationForm',
+                controller: 'applicationController'
+            });
 
         $stateProvider.state('thanks',
             {
@@ -32,42 +42,21 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
                 templateUrl: "/sit/partials/application/deadlinepassed"
             });
 
-        $stateProvider.state('application',
-            {
-                url: '/sit/application',
-                //abstract: true,
-                templateUrl: '/sit/partials/application/applicationForm',
-                controller: 'applicationController'
-            });
+        $urlRouterProvider.when('/sit/admin', function ($state) {
+            $state.go('pocReportList');
+        });
 
-        //$stateProvider.state('application.form',
-        //{
-            //url: '/form',
-                //templateUrl: '/sit/partials/application/applicationForm'
-        //});
+        $urlRouterProvider.when('/sit/admin/', function ($state) {
+            $state.go('pocReportList');
+        });
 
-        //$stateProvider
-            //.state('application.screen', {
-                //url: '/form',
-                //views: {
-                    //'general_formfield_info': {
-                        //templateUrl: '/sit/partials/application/general_formfield_info'
-                    //}
-                //}
-            //});
+        $urlRouterProvider.when('/SIT/admin', function ($state) {
+            $state.go('pocReportList');
+        });
 
-        $stateProvider.state('login',
-            {
-                url: '/sit/login',
-                templateUrl: '/sit/partials/account/login',
-                controller: 'loginController'
-            });
-
-        // $stateProvider.state('applicationClosed',
-        //     {
-        //         url: '/scholarshipApp',
-        //         templateUrl: '/scholarshipApp/partials/application/applicationClosed'
-        //     });
+        $urlRouterProvider.when('/SIT/Admin/', function ($state) {
+            $state.go('pocReportList');
+        });
 
         $urlRouterProvider.when('/sit', function ($state) {
 
@@ -86,12 +75,11 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
             $state.go('login');
         });
 
-
         $urlRouterProvider.otherwise(function(){ 'login'});
 
 
         $locationProvider.html5Mode(true);
-
+        
     });
 
 angular.module('sitApp').run(function ($rootScope, $state) {
