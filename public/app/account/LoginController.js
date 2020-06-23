@@ -17,7 +17,7 @@ angular.module('sitApp').controller('loginController', function($scope, $http, $
     mvAuth.authenticateUser($scope.user).then(function (success) {
 
       if (success && mvIdentity.currentUser.GivenName) {
-        checkIfAdmin();
+        $scope.checkIfAdmin();
         Notifier.notify('Welcome ' + mvIdentity.currentUser.GivenName + '.  You have successfully signed in!');
         $state.go('application');
       }
@@ -27,7 +27,7 @@ angular.module('sitApp').controller('loginController', function($scope, $http, $
 
     });
 
-    function checkIfAdmin() {
+    $scope.checkIfAdmin = function () {
       if(
           ($scope.user.username.indexOf('ddorman')> -1) ||
           ($scope.user.username.indexOf('aberns')> -1) ||
@@ -37,6 +37,7 @@ angular.module('sitApp').controller('loginController', function($scope, $http, $
           ($scope.user.username.indexOf('jcampbell')> -1) ||
           ($scope.user.username.indexOf('yweng3')> -1))
       {
+        Notifier.notify('Welcome ' + mvIdentity.currentUser.GivenName + '.  You have successfully signed in!');
         $state.go('pocReportList');
       }
       else {
