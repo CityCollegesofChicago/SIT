@@ -1,4 +1,4 @@
-angular.module('sitApp').controller('AdminListController', function ($scope, Reports, $http, $location, $window, $state, $filter, Notifier, mvAuth, mvIdentity) {
+angular.module('sitApp').controller('adminListController', function ($scope, Reports, $http, $location, $window, $state, $filter, Notifier, mvAuth, mvIdentity) {
 
     $scope.showDetail = false;
     //$scope.showAddPDF = false;
