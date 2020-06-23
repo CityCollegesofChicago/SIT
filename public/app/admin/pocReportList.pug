@@ -1,0 +1,46 @@
+//.container.top-padding-med
+.container
+    .col-sm-12
+        .row
+            .col-sm-6.mb-4.text-left.font-weight-bold
+                span You are logged in as: &nbsp; {{student.DisplayName}}
+            .col-sm-6.mb-4
+                input.btn.btn-primary.ml-12(type='submit' ng-click='logout()' ng-model="reportsFilter" value='Logout')
+    .col-sm-12
+        .row
+            .col-sm-6.mb-4
+                span.fieldcombo.text-center.font-weight-bold Enter Person of Concern name: &nbsp;&nbsp;
+                input(style='margin-right: 5px;' ng-model="reportsFilter")
+                button.btn.btn-primary(type='submit') Search
+            .col-sm-6.mb-4
+                span.fieldcombo.text-center.font-weight-bold Enter college Person of Concern report filed at: &nbsp;&nbsp;
+                input(style='margin-right: 5px;' ng-model="collegeFilter" )
+                button.btn.btn-primary(type='submit') Search
+        .row
+            .col-sm-2.mb-1
+                h5(ng-click='sortColumn(name)' ng-class='sortClass(name)') Name
+            .col-sm-2.mb-1
+                h5(ng-click='sortColumn(reportDate)' ng-class='sortClass(reportDate)') Report Date
+            .col-sm-2.mb-1
+                h5(ng-click='sortColumn(college)' ng-class='sortClass(college)') College
+            .col-sm-2.mb-1
+                h5(ng-click='sortColumn(email)' ng-class='sortClass(email)') Email
+            .col-sm-2.mb-1
+                h5(ng-click='sortColumn(department)' ng-class='sortClass(department)') Department
+            .col-sm-2.mb-1
+                h5(ng-click='sortColumn(relationship)' ng-class='sortClass(relationship)') Relationship
+        .row(ng-repeat="reports in reports  | filter: {name: reportsFilter} | filter: {college: collegeFilter} | orderBy:column:reverse" class="striped" style="padding-right:5px;")
+            .col-sm-2.mb-1.font-weight-bold
+                //input( ng-model="contract.boardReportLink" )
+                a(href="" ng-model="reportsFilter" ng-click="toggleDetail(reports)") {{reports.name}}
+            .col-sm-2.mb-1
+                span {{reports.reportDate | date:'MM/dd/yyyy'}}
+            .col-sm-2.mb-1
+                span {{reports.college}}
+            .col-sm-2.mb-1
+                span {{reports.email}}
+            .col-sm-2.mb-1
+                span {{reports.department}}
+            .col-sm-2.mb-1
+                span {{reports.relationship}}
+            .row.col-sm-10.col-sm-offset-1(ng-show="reports.showDetail" ng-include="'/reports/partials/admin/pocReports-Detail'")

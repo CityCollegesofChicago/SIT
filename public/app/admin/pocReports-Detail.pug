@@ -1,0 +1,200 @@
+.detail.mb-2
+    hr.col-sm-offset-1
+    h4.allCaps(style="background-color: grey; color:white; padding:5px;") Person of Concern Reporting Person's Information
+    .row.col-sm-offset-1
+        .col-sm-4.mb-2
+            span.fieldcombo.font-weight-bold Office Phone
+            br
+            span {{reports.officePhone}}
+        .col-sm-4.mb-2
+            span.fieldcombo.font-weight-bold  Other Phone
+            br
+            span {{reports.otherPhone}}
+        .col-sm-4.mb-2
+            span.fieldcombo.font-weight-bold Room Number
+            br
+            span {{reports.roomNumber}}
+    hr.col-sm-offset-1
+    h4.allCaps(style="background-color: grey; color:white; padding:5px;") Student/Employee of Concern Information
+    .row.col-sm-offset-1
+        .col-sm-3.mb-2
+            span.fieldcombo.text-center.font-weight-bold Student/Employee First Name *
+            br
+            span {{reports.seFirstName}}
+        .col-sm-3.mb-2
+            span.fieldcombo.font-weight-bold Student/Employee Middle Name
+            br
+            span {{reports.seMiddleName}}
+        .col-sm-3.mb-2
+            span.fieldcombo.font-weight-bold Student/Employee Last Name *
+            br
+            span {{reports.seLastName}}
+        .col-sm-3.mb-2
+            span.fieldcombo.font-weight-bold Person Status *
+            br
+            span {{reports.personStatus}}
+    .row.col-sm-offset-1
+        .col-sm-3.mb-2
+            span.fieldcombo.font-weight-bold Other Person Status
+            br
+            span {{reports.otherStatus}}
+        .col-sm-3.mb-2
+            span.fieldcombo.font-weight-bold Student/Employee Id
+            br
+            span {{reports.studentId}}
+        .col-sm-3.mb-2
+            span.fieldcombo.font-weight-bold Student/Employee Email
+            br
+            span {{reports.seEmail}}
+        .col-sm-3.mb-2
+            span.fieldcombo.font-weight-bold Student/Employee Phone
+            br
+            span {{reports.sePhone}}
+    hr.col-sm-offset-1
+    h4.allCaps(style="background-color: grey; color:white; padding:5px;") Information about Situation Causing Concern
+    .row.col-sm-offset-1
+        .col-sm-4.mb-2
+            span.fieldcombo.font-weight-bold What You Are Reporting
+            br
+            span {{reports.reportDescription}}
+        .col-sm-4.mb-2
+            span.fieldcombo.font-weight-bold Situation of Concern Date
+            br
+            span {{reports.SituationConcernDate}}
+        .col-sm-4.mb-2
+            span.fieldcombo.font-weight-bold Situation of Concern Time
+            br
+            span {{reports.SituationConcernTime}}
+    .row.col-sm-offset-1
+        .col-sm-12.mb-2
+            span.fieldcombo.font-weight-bold Describe the concerning behavior, situation and/or incident.
+            br
+            span {{reports.concerningBehavior}}
+    .row.col-sm-offset-1
+        .col-sm-12.mb-2
+            span.fieldcombo.font-weight-bold Was the concerning behavior or incident addressed by you or anyone else?
+            br
+            span {{reports.incidentAddressed}}
+    .row.col-sm-offset-1
+        .col-sm-12.mb-2
+            span.fieldcombo.font-weight-bold Have you reported your concerns about the student/employee to anyone else?
+            br
+            span {{reports.concernsReported}}
+    .row.col-sm-offset-1
+        .col-sm-12.mb-2
+            span.fieldcombo.font-weight-bold Was additional follow-up action needed?
+            br
+            span {{reports.followupaction}}
+    .row.col-sm-offset-1
+        .col-sm-12.mb-2
+            span.fieldcombo.font-weight-bold Provide an explanation if other follow-up action is needed.
+            br
+            span {{reports.otherStatus2}}
+        //.col-sm-3.mb-2.font-weight-bold
+            span.fieldcombo.font-weight-bold Contract Itself
+            br
+            a(href="https://apps.ccc.edu/brpublic/2019/aug/33825.pdf" target="_blank") {{contract.contractItself}}
+                //br
+                //span.fieldcombo Preferred Email
+                //br
+                //input( ng-model="student.emailPreferred"  ng-blur="saveAdminChanges(student)")
+                //a(ng-href="mailTo:{{student.emailPreferred}}") click to email: {{student.emailPreferred}}
+        //br
+        //h4.allCaps(style="background-color:grey; color:white; padding:5px;") Demographics
+        //.row
+            .col-sm-3
+                span.fieldcombo Gender
+                br
+                span {{student.gender}}
+            .col-sm-3
+                span.fieldcombo Birth Date
+                br
+                span {{student.birthDay | date:'yyyy-MM-dd':'UTC' }}
+            .col-sm-3
+                span.fieldcombo Ethnicity
+                br
+                span {{student.ethnicity }}
+            .col-md-3
+                span.fieldcombo  First BA
+                br
+                span {{student.firstBA}}
+        //br
+        //h4.allCaps(style="background-color: grey; color:white; padding:5px;") Academic Information
+        //.row
+            .col-md-3
+                span.fieldcombo  Transfer Semester
+                br
+                select( ng-model="student.transferSem" ng-blur="saveAdminChanges(student)" )
+                    option(value='Fall2019') Fall 2019
+                    option(value='Spring2019') Spring 2019
+                    option(value='Summer2019') Summer 2019
+            .col-md-2
+                span.fieldcombo  SAT
+                br
+                span {{student.satScore}}
+            .col-md-2
+                span.fieldcombo  ACT
+                br
+                span {{student.actScore}}
+            .col-md-2
+                span.fieldcombo  TOEFL
+                br
+                span {{student.toeflScore}}
+            .col-md-3
+                span.fieldcombo.text-center   Intended Major
+                br
+                input( ng-model="student.major"  ng-blur="saveAdminChanges(student)")
+        //br
+        //.row
+            .col-md-6
+                span.fieldcombo.text-center  Schools Selected
+                br
+                ul(ng-repeat="school in student.schoolsSelected track by $index ")
+                    li
+                        select( ng-model="school" ng-blur="saveSchoolChanges(student,school,$index)" ng-options="schl for schl in schoolListSorted ")
+
+            .col-md-3
+                span.fieldcombo.text-center  Applied at School
+                br
+                ul(ng-repeat="school in student.schoolsSelected track by $index ")
+                    li
+                        input(type="checkbox" ng-checked="student.applied[$index]"    ng-model="student.applied[$index]" ng-blur=" saveAndNotifyCCC(student, $index)")
+            .col-md-3
+                span.fieldcombo.text-center  Email to Schedule Sent
+                br
+                ul(ng-repeat="school in student.schoolsSelected track by $index ")
+                    li
+                        input(type="checkbox"   ng-checked="student.emailToSchedule[$index]"  ng-model="student.emailToSchedule[$index]"  ng-blur="saveAdminChanges(student)" )
+
+        //br
+        //.row
+            .col-md-3
+                span.fieldcombo.text-center  Appointment Time
+                br
+                ul(ng-repeat="school in student.schoolsSelected track by $index ")
+                    li
+                        input(type="time" min="09:15" max="16:45"  ng-model="student.appointmentTime[$index]" ng-blur="saveAdminChanges(student)")
+            .col-md-3
+                span.fieldcombo.text-center  Acceptance Status
+                br
+                ul(ng-repeat="school in student.schoolsSelected track by $index ")
+                    li
+                        select(ng-model="student.accepted[$index]" ng-blur="saveAdminChanges(student)")
+                            option(value='Yes') Yes
+                            option(value='No') No
+                            option(value='Conditional') Conditional
+            .col-md-3
+                span.fieldcombo.text-center  Scholarship Offered
+                br
+                ul(ng-repeat="school in student.schoolsSelected track by $index ")
+                    li
+                        input(type="number" min="0" max="2000000"   ng-model="student.scholarship[$index]" ng-blur="saveAdminChanges(student)")
+                        <span id="currency-no-fractions">{{student.scholarship[$index] | currency:"$":0}}</span>
+            .col-md-3
+                span.fieldcombo.text-center  Present at Onsite
+                br
+                input(type="checkbox" ng-checked="student.atOnsite == 1" ng-model="student.atOnsite" ng-blur="saveAdminChanges(student)")
+
+
+
+
