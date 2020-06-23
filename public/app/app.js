@@ -19,7 +19,7 @@ var sitApp = angular.module('sitApp', ['ngResource', 'ui.router', 'ngFileUpload'
             {
                 url: '/sit/admin/pocReportList',
                 templateUrl: "/sit/partials/admin/pocReportList",
-                controller: "AdminListController",
+                controller: "adminListController",
             });
 
         $stateProvider.state('login',
