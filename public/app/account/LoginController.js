@@ -27,23 +27,3 @@ angular.module('sitApp').controller('loginController', function($scope, $http, $
     });
   }
 });
-
-  //$scope.submitLogin = function () {
-
-    //mvAuth.authenticateUser($scope.user).then(function (success) {
-
-      //if (success && !mvIdentity.currentUser.hasApplied) {
-        //Notifier.notify('Welcome ' + mvIdentity.currentUser.GivenName + '.  You have successfully signed in!');
-        //$state.go('application');
-
-      //} else if (mvIdentity.currentUser.hasApplied) {
-        //Notifier.error(mvIdentity.currentUser.GivenName + '.  Our records indicate that you have already submitted an inquiry!');
-      //} else {
-        //Notifier.error('Username and Password combination incorrect');
-      //}
-
-    //});
-  //}
-//});
-
-
