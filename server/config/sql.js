@@ -46,8 +46,12 @@
    //});
    //};
 
+
+
    exports.saveApplication = function(req, res) {
+       console.log(Object.getOwnPropertyNames(req.body.student));
        var applicationData =  req.body.student;
+       console.log(Object.getOwnPropertyNames(applicationData));
        saveData(applicationData,res);
    };
 
@@ -58,7 +62,7 @@
                .input('name', sql.NVarChar(75), applicationData.DisplayName)
                .input('username', sql.NVarChar(50), applicationData.username)
                .input('studentId', sql.NVarChar(10), applicationData.EmployeeNumber)
-               .input('email', sql.NVarChar(100), applicationData.email)
+               .input('email', sql.NVarChar(100), applicationData.EmailAddress)
                .input('officePhone', sql.NVarChar(15), applicationData.officePhone)
                .input('otherPhone', sql.NVarChar(15), applicationData.otherPhone)
                .input('college', sql.NVarChar(30), applicationData.college)
@@ -68,6 +72,7 @@
                .input('seFirstName', sql.NVarChar(100), applicationData.seFirstName)
                .input('seMiddleName', sql.NVarChar(100), applicationData.seMiddleName)
                .input('seLastName', sql.NVarChar(100), applicationData.seLastName)
+               .input('personStatus', sql.NVarChar(100), applicationData.personStatus)
                .input('otherStatus', sql.NVarChar(250), applicationData.otherStatus)
                .input('seEmail', sql.NVarChar(75), applicationData.seEmail)
                .input('sePhone', sql.NVarChar(15), applicationData.sePhone)
