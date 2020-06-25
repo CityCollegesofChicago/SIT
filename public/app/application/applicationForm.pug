@@ -246,22 +246,23 @@ doctype html
                 .row.padding-after
                     .col-sm-6
                         .form-group
-                            label.bootcamp-input-label.mb-3(for='supportDocsOne')
+                            label.bootcamp-input-label(for='documentUploadOne')
                             | <strong>Note:</strong> Attach any files that support your report by clicking the button below (optional). File
                             | upload size must be 4MB or less, and the accepted file formats are .pdf, .doc, .docx, .jpg, .png, .gif.
+                            br
                             .input-group
-                                input#supportDocsOne.bootcamp-input(type='file', name='fileSupportDocOne' ng-model="files.fileSupportDocOne" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docOne',files.fileSupportDocOne.name);")
-                                div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.fileSupportDocOne.$touched')
-                                    .p-field-error(ng-show='scholarshipAppForm.fileSupportDocOne.$error.pattern') File type not allowed.
-                                    .p-field-error(ng-show='scholarshipAppForm.fileSupportDocOne.$error.maxSize') File is too large.
-                            //label.bootcamp-input-label(for='documentUploadTwo')
-                            //.input-group
+                                input#documentUploadOne.bootcamp-input(type='file', name='documentUploadOne' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docOne',files.supportingDocs.name);")
+                                //div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadOne.$touched')
+                                    .p-field-error(ng-show='scholarshipAppForm.documentUploadOne.$error.pattern') File type not allowed.
+                                    .p-field-error(ng-show='scholarshipAppForm.documentUploadOne.$error.maxSize') File is too large.
+                            label.bootcamp-input-label(for='documentUploadTwo')
+                            .input-group
                                 input#documentUploadTwo.bootcamp-input(type='file', name='documentUploadTwo' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docTwo',files.supportingDocs.name);")
                                 //div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadTwo.$touched')
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadTwo.$error.pattern') File type not allowed.
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadTwo.$error.maxSize') File is too large.
-                            //label.bootcamp-input-label(for='documentUploadThree')
-                            //.input-group
+                            label.bootcamp-input-label(for='documentUploadThree')
+                            .input-group
                                 input#documentUploadThree.bootcamp-input(type='file', name='documentUploadThree' ng-model="files.supportingDocs" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docThree',files.supportingDocs.name);")
                                 //div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.documentUploadThree.$touched')
                                     .p-field-error(ng-show='scholarshipAppForm.documentUploadThree.$error.pattern') File type not allowed.

@@ -2,13 +2,14 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
 
     $window.scrollTo(0, 0);
 
-    $scope.files = {};  //file upload code
+    //$scope.files = {};
     $scope.response = {};
+    //$scope.student.distributionnames = {};
     $scope.Submitted = false;
 
-    $scope.setFileName = function(field, value){    //file upload code
-        $scope.student[field] = value;
-    };
+    //$scope.setFileName = function(field, value){
+        //$scope.student[field] = value;
+    //};
 
     if (!mvIdentity.currentUser) {
         $state.go('login');
@@ -25,39 +26,9 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
             Notifier.error("Please complete all the required fields.");
             return;
         }
-        $scope.submitFormDocs(); //file upload code
-        //$scope.saveForm();
+        $scope.saveForm();
 
     };
-
-    $scope.submitFormDocs = function () {
-        var file = {};
-
-        file.upload = Upload.upload({
-            url: '/sit/api/application',
-            data: {student : $scope.student,
-                files: $scope.files}
-        });
-        $scope.Submitted = true;
-        usSpinnerService.spin('spinner-1');
-        file.upload.then(function (response) {
-            $timeout(function () {
-                $scope.student = response.data;
-                Notifier.notify('Your application has been successfully submitted.');
-                usSpinnerService.stop('spinner-1');
-                $state.go('thanks');
-            });
-        }, function (response) {
-            if (response.status > 0){
-                console.dir(  response.data);
-            }
-            $scope.Submitted = false;
-            usSpinnerService.stop('spinner-1');
-            Notifier.error(response.data.reason || 'There was a problem and your application has not been submitted.');
-            //$scope.response = response;
-        });
-    };
-
 
     $scope.saveForm = function () {
         $scope.Submitted = true;

@@ -4,56 +4,56 @@
         mailService = require('./smtp-email.js');
 
 
-exports.saveApplication = function(req, res) {   //File upload code...
-    var applicationData =  req.body.student;
-    var files = req.files.files.fileSupportDocOne;
-    console.log(Object.getOwnPropertyNames(files));
-    console.log(Object.getOwnPropertyNames(applicationData));
+//exports.saveApplication = function(req, res) {   //File upload code...
+    //var applicationData =  req.body.student;
+    //var files = req.files.files.supportingDocs;
+    //console.log(Object.getOwnPropertyNames(files));
+    //console.log(Object.getOwnPropertyNames(applicationData));
 
-    saveData(applicationData, files,res);
-};
+    //saveData(applicationData, files,res);
+//};
 
-   var saveFiles = function(files,id,res,result1, email){
-   var file1 = files;
-   var fileData1  =  fs.readFileSync(file1.path);
+   //var saveFiles = function(files,id,res,result1, email){
+   //var file1 = files;
+   //var fileData1  =  fs.readFileSync(file1.path);
 
-   console.log("file1: " + ' ' + Object.getOwnPropertyNames(file1));
+   //console.log("file1: " + ' ' + Object.getOwnPropertyNames(file1));
 
-   new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
-   return pool.request()
-   .input('doc_type1', sql.NVarChar(200), file1.type )
-   .input('binaryData',  sql.VarBinary(sql.MAX), fileData1 )
-   .input('documentname', sql.NVarChar(100), file1.originalFilename )
-   .input('appId', sql.Int, id)
-   .execute('InsertSuppDocs')
-   }).then(function (result) {
-   console.log(result);
-   sql.close();
-   mailService.sendEmail(email, 'submitted');
-   res.send(result1);
-   }).catch(function (err) {
-   console.log('catch in savefiles');
-   res.status(400);
-   console.log("error saving applicant supporting document: " + err.toString());
-   sql.close();
-   return res.send({reason: err.toString()});
-   });
-   sql.on('error', function (err) {
-   sql.close();
-   res.status(400);
-   console.log("error saving error saving applicant supporting document: " + err.toString());
-   return res.send({reason: err.toString()});
-   });
-   };
-
-
-
-   //exports.saveApplication = function(req, res) {
-       //console.log(Object.getOwnPropertyNames(req.body.student));
-       //var applicationData =  req.body.student;
-       //console.log(Object.getOwnPropertyNames(applicationData));
-       //saveData(applicationData,res);
+   //new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
+   //return pool.request()
+   //.input('doc_type1', sql.NVarChar(200), file1.type )
+   //.input('binaryData',  sql.VarBinary(sql.MAX), fileData1 )
+   //.input('documentname', sql.NVarChar(100), file1.originalFilename )
+   //.input('appId', sql.Int, id)
+   //.execute('InsertSuppDocs')
+   //}).then(function (result) {
+   //console.log(result);
+   //sql.close();
+   //mailService.sendEmail(email, 'submitted');
+   //res.send(result1);
+   //}).catch(function (err) {
+   //console.log('catch in savefiles');
+   //res.status(400);
+   //console.log("error saving applicant supporting document: " + err.toString());
+   //sql.close();
+   //return res.send({reason: err.toString()});
+   //});
+   //sql.on('error', function (err) {
+   //sql.close();
+   //res.status(400);
+   //console.log("error saving error saving applicant supporting document: " + err.toString());
+   //return res.send({reason: err.toString()});
+   //});
    //};
+
+
+
+   exports.saveApplication = function(req, res) {
+       console.log(Object.getOwnPropertyNames(req.body.student));
+       var applicationData =  req.body.student;
+       console.log(Object.getOwnPropertyNames(applicationData));
+       saveData(applicationData,res);
+   };
 
    var saveData = function(applicationData,  res) {
        new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
@@ -86,38 +86,14 @@ exports.saveApplication = function(req, res) {   //File upload code...
                .input('otherStatus2', sql.NVarChar(sql.MAX), applicationData.otherStatus2)
                //.input('distributionNames', sql.NVarChar(250), applicationData.distributionNames)
                //.input('dateTimeSubmitted', sql.DateTime, applicationData.dateTimeSubmitted)
-               .output('appId',sql.Int)
+               //.output('appId',sql.Int)
                .execute('saveApplication')
-       //}).then(function (result) {
-           //sql.close();
-           //console.log('email address: ' + applicationData.email);
-           //mailService.sendEmail(applicationData.email);
-           //res.send(result);
-
-       //}).catch(function (err) {
-           //console.log("catch");
-           //res.status(400);
-           //console.log("error saving applicant data: " + err.toString());
-           //sql.close();
-           //return res.send({reason: err.toString()});
-       //});
-       //sql.on('error', function (err) {
-           //console.log("error");
-           //sql.close();
-           //res.status(400);
-           //console.log("error saving applicant data: " + err.toString());
-           //return res.send({reason: err.toString()});
-       //});
-
-       }).then(function (result) {   //For file uploads...
-           console.log("then" );
-           var appId = result.output.appId;
-           console.log('appId: ' + appId);
+       }).then(function (result) {
            sql.close();
            console.log('email address: ' + applicationData.email);
            mailService.sendEmail(applicationData.email);
            res.send(result);
-           saveFiles(files, appId,res,result, applicationData.email);
+
        }).catch(function (err) {
            console.log("catch");
            res.status(400);
@@ -132,4 +108,28 @@ exports.saveApplication = function(req, res) {   //File upload code...
            console.log("error saving applicant data: " + err.toString());
            return res.send({reason: err.toString()});
        });
+
+       //}).then(function (result) {   //For file uploads...
+           //console.log("then" );
+           //var appId = result.output.appId;
+           //console.log('appId: ' + appId);
+           //sql.close();
+           //console.log('email address: ' + applicationData.email);
+           //mailService.sendEmail(applicationData.email);
+           //res.send(result);
+           //saveFiles(files, appId,res,result, applicationData.email);
+       //}).catch(function (err) {
+           //console.log("catch");
+           //res.status(400);
+           //console.log("error saving applicant data: " + err.toString());
+           //sql.close();
+           //return res.send({reason: err.toString()});
+       //});
+       //sql.on('error', function (err) {
+           //console.log("error");
+           //sql.close();
+           //res.status(400);
+           //console.log("error saving applicant data: " + err.toString());
+           //return res.send({reason: err.toString()});
+       //});
    }
