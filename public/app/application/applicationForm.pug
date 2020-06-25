@@ -249,13 +249,8 @@ doctype html
                             label.bootcamp-input-label.mb-3(for='supportDocsOne')
                             | <strong>Note:</strong> Attach any files that support your report by clicking the button below (optional). File
                             | upload size must be 4MB or less, and the accepted file formats are .pdf, .doc, .docx, .jpg, .png, .gif.
-                            .p-file-wrap
+                            .input-group
                                 input#supportDocsOne.bootcamp-input(type='file', name='fileSupportDocOne' ng-model="files.fileSupportDocOne" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('docOne',files.fileSupportDocOne.name);")
-                                .input-group
-                                    span.input-group-btn
-                                        button.btn(type='button') browse
-                                    |
-                                    input#docOne.form-control.p-ignore-field(type='text', name="supportingDocument" placeholder='resume', readonly='readonly', ng-model="student.docOne")
                                 div(ng-show='scholarshipAppForm.$submitted || scholarshipAppForm.fileSupportDocOne.$touched')
                                     .p-field-error(ng-show='scholarshipAppForm.fileSupportDocOne.$error.pattern') File type not allowed.
                                     .p-field-error(ng-show='scholarshipAppForm.fileSupportDocOne.$error.maxSize') File is too large.
