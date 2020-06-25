@@ -15,6 +15,9 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
         $state.go('login');
     } else {
         $scope.student = mvIdentity.currentUser;
+        $scope.student.reportdate = $filter('date')($scope.student.reportdate.slice(0,4) + "-" + $scope.student.reportdate.slice(4,6) + "-" + $scope.student.reportdate.slice(6), "MM/dd/yyyy");
+        $scope.student.situationconcerndate = $filter('date')($scope.student.situationconcerndate.slice(0,4) + "-" + $scope.student.situationconcerndate.slice(4,6) + "-" + $scope.student.situationconcerndate.slice(6), "MM/dd/yyyy");
+        $scope.student.situationconcerntime = $filter('date')($scope.student.situationconcerntime, "mediumTime");
     }
 
 
