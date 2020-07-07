@@ -247,6 +247,7 @@ doctype html
                     .col-sm-6(style="height: 100px;")
                         .form-group(style="position:absolute; bottom:0")
                             label.bootcamp-input-label(for='report') Please attach your resume  (Less than 4MB in size. These are the accepted formats: .pdf,.doc,.docx,.jpg,.png,.gif  )
+                            br
                             .p-file-wrap
                                 input#report.bootcamp-input(type='file', name='fileReport' ng-model="files.fileReport" ngf-select="" ngf-validate="{size: {max: '4MB'}, pattern:'.pdf,.doc,.docx,.jpg,.png,.gif'}" ng-change="setFileName('reportA',files.fileReport.name);")
                                 .input-group
