@@ -4,56 +4,54 @@
         mailService = require('./smtp-email.js');
 
 
-//exports.saveApplication = function(req, res) {   //File upload code...
-    //var applicationData =  req.body.student;
-    //var files = req.files.files.supportingDocs;
-    //console.log(Object.getOwnPropertyNames(files));
-    //console.log(Object.getOwnPropertyNames(applicationData));
-
-    //saveData(applicationData, files,res);
-//};
-
-   //var saveFiles = function(files,id,res,result1, email){
-   //var file1 = files;
-   //var fileData1  =  fs.readFileSync(file1.path);
-
-   //console.log("file1: " + ' ' + Object.getOwnPropertyNames(file1));
-
-   //new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
-   //return pool.request()
-   //.input('doc_type1', sql.NVarChar(200), file1.type )
-   //.input('binaryData',  sql.VarBinary(sql.MAX), fileData1 )
-   //.input('documentname', sql.NVarChar(100), file1.originalFilename )
-   //.input('appId', sql.Int, id)
-   //.execute('InsertSuppDocs')
-   //}).then(function (result) {
-   //console.log(result);
-   //sql.close();
-   //mailService.sendEmail(email, 'submitted');
-   //res.send(result1);
-   //}).catch(function (err) {
-   //console.log('catch in savefiles');
-   //res.status(400);
-   //console.log("error saving applicant supporting document: " + err.toString());
-   //sql.close();
-   //return res.send({reason: err.toString()});
-   //});
-   //sql.on('error', function (err) {
-   //sql.close();
-   //res.status(400);
-   //console.log("error saving error saving applicant supporting document: " + err.toString());
-   //return res.send({reason: err.toString()});
-   //});
-   //};
-
-
-
    exports.saveApplication = function(req, res) {
-       console.log(Object.getOwnPropertyNames(req.body.student));
        var applicationData =  req.body.student;
+       var files = req.files.files.fileReport;
+       console.log(Object.getOwnPropertyNames(files));
        console.log(Object.getOwnPropertyNames(applicationData));
-       saveData(applicationData,res);
+
+       saveData(applicationData, files,res);
    };
+
+   var saveFiles = function(files,id,res,result1, EmailAddress){
+   var file1 = files;
+   var fileData1  =  fs.readFileSync(file1.path);
+
+       console.log("file1: " + ' ' + Object.getOwnPropertyNames(file1));
+
+            new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
+                return pool.request()
+                    .input('doc_type1',     sql.NVarChar(200), file1.type )
+                    .input('doc_content1',  sql.VarBinary(sql.MAX), fileData1 )
+                    .input('doc_name1',     sql.NVarChar(100), file1.originalFilename )
+                    .input('appId',         sql.Int, id)
+                    .execute('InsertSuppDocs')
+            }).then(function (result) {
+                console.log(result);
+                sql.close();
+                mailService.sendEmail(EmailAddress, 'submitted');
+                res.send(result1);
+            }).catch(function (err) {
+                console.log('catch in savefiles');
+                res.status(400);
+                console.log("error saving applicant supporting document: " + err.toString());
+                sql.close();
+                return res.send({reason: err.toString()});
+       });
+       sql.on('error', function (err) {
+           sql.close();
+           res.status(400);
+           console.log("error saving error saving applicant supporting document: " + err.toString());
+           return res.send({reason: err.toString()});
+       });
+   };
+
+   //exports.saveApplication = function(req, res) {
+       //console.log(Object.getOwnPropertyNames(req.body.student));
+       //var applicationData =  req.body.student;
+       //console.log(Object.getOwnPropertyNames(applicationData));
+       //saveData(applicationData,res);
+   //};
 
    var saveData = function(applicationData,  res) {
        new sql.ConnectionPool(config.sqlConfig).connect().then(function (pool) {
@@ -86,12 +84,12 @@
                .input('otherStatus2', sql.NVarChar(sql.MAX), applicationData.otherStatus2)
                //.input('distributionNames', sql.NVarChar(250), applicationData.distributionNames)
                //.input('dateTimeSubmitted', sql.DateTime, applicationData.dateTimeSubmitted)
-               //.output('appId',sql.Int)
+               .output('appId',sql.Int)
                .execute('saveApplication')
        }).then(function (result) {
            sql.close();
-           console.log('email address: ' + applicationData.email);
-           mailService.sendEmail(applicationData.email);
+           console.log('email address: ' + applicationData.EmailAddress);
+           mailService.sendEmail(applicationData.EmailAddress);
            res.send(result);
 
        }).catch(function (err) {

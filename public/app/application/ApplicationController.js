@@ -2,14 +2,14 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
 
     $window.scrollTo(0, 0);
 
-    //$scope.files = {};
+    $scope.files = {};
     $scope.response = {};
     //$scope.student.distributionnames = {};
     $scope.Submitted = false;
 
-    //$scope.setFileName = function(field, value){
-        //$scope.student[field] = value;
-    //};
+    $scope.setFileName = function(field, value){
+        $scope.student[field] = value;
+    };
 
     if (!mvIdentity.currentUser) {
         $state.go('login');
@@ -22,29 +22,42 @@ angular.module('sitApp').controller('applicationController',  function ($scope, 
 
 
     $scope.submitApplication = function () {
-        if (!$scope.scholarshipAppForm.$valid) {
+        if (!$scope.scholarshipAppForm.$valid || $scope.Submitted) {
             Notifier.error("Please complete all the required fields.");
             return;
         }
-        $scope.saveForm();
+        //$scope.saveForm();
+        $scope.submitFormDocs();
 
     };
 
-    $scope.saveForm = function () {
+    $scope.submitFormDocs = function () {
+        var file = {};
+
+        file.upload = Upload.upload({
+            url: '/sit/api/application',
+            data: {student : $scope.student,
+                files: $scope.files}
+        });
         $scope.Submitted = true;
-        Application.save({student: $scope.student}).$promise.then(function (result) {
-                Notifier.notify('Your Person of Concern application has been successfully submitted.');
-                $timeout(function () {
-
-                    $state.go('thanks');
-                },1000);
-
-            },
-            function (err) {
-                Notifier.error(err);
+        usSpinnerService.spin('spinner-1');
+        file.upload.then(function (response) {
+            $timeout(function () {
+                $scope.student = response.data;
+                Notifier.notify('Your report has been successfully submitted.');
+                usSpinnerService.stop('spinner-1');
+                $state.go('thanks');
             });
-
-    }
+        }, function (response) {
+            if (response.status > 0){
+                console.dir(  response.data);
+            }
+            $scope.Submitted = false;
+            usSpinnerService.stop('spinner-1');
+            Notifier.error(response.data.reason || 'There was a problem and your report has not been submitted.');
+            //$scope.response = response;
+        });
+    };
 
 })
 
